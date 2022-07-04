@@ -2,7 +2,7 @@ package ss2_loop.exercise;
 
 import java.util.Scanner;
 
-public class test {
+public class GeometricTypes {
     public static void main(String[] args) {
         int choice;
         Scanner scanner = new Scanner(System.in);

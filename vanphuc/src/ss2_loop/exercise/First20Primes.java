@@ -1,6 +1,6 @@
 package ss2_loop.exercise;
 
-public class ShowPrimeNumbers {
+public class First20Primes {
     public static void main(String[] args) {
         System.out.print("Prime Numbers: ");
         int number = 2;
