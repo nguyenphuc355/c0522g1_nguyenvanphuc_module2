@@ -23,6 +23,31 @@ public class ShowDrawings {
         }
         System.out.print("\n");
 
+        System.out.println("Top-right: ");
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < height; j++) {
+                if (j < i) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print("*");
+                }
+            }
+            System.out.print("\n");
+        }
+        System.out.print("\n");
+        System.out.println("\nBotton-right: ");
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < height; j++) {
+                if (j < height - i - 1) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print("*");
+                }
+            }
+            System.out.print("\n");
+        }
+        System.out.print("\n");
+
         System.out.println("Draw Triangle");
         for (int i = 0; i < height; i++) {
             for (int j = 0; j <= i; j++) {

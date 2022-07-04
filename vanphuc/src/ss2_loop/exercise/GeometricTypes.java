@@ -12,12 +12,12 @@ public class test {
             System.out.println("2. Print the square triangle");
             System.out.println("3. Print isosceles triangle");
             System.out.println("0. Exit");
-            System.out.print("\nEnter your choice: ");
+            System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
-                    System.out.println("\nPrint the rectangle");
+                    System.out.println("Print the rectangle");
                     System.out.print("Input length: ");
                     int length = scanner.nextInt();
                     System.out.print("Input width: ");
@@ -31,11 +31,11 @@ public class test {
                     }
                     break;
                 case 2:
-                    System.out.println("\nPrint the square triangle");
+                    System.out.println("Print the square triangle");
                     System.out.print("Input height: ");
                     int height = scanner.nextInt();
 
-                    System.out.println("\nBotton-left: ");
+                    System.out.println("Botton-left: ");
                     for (int i = 0; i < height; i++) {
                         for (int j = 0; j <= i; j++) {
                             System.out.print("*");
@@ -43,7 +43,7 @@ public class test {
                         System.out.println();
                     }
 
-                    System.out.println("\nTop-left: ");
+                    System.out.println("Top-left: ");
                     for (int i = 0; i < height; i++) {
                         for (int j = 0; j < height - i; j++) {
                             System.out.print("*");
@@ -51,7 +51,7 @@ public class test {
                         System.out.println();
                     }
 
-                    System.out.println("\nTop-right: ");
+                    System.out.println("Top-right: ");
                     for (int i = 0; i < height; i++) {
                         for (int j = 0; j < height; j++) {
                             if (j < i) {
@@ -63,7 +63,7 @@ public class test {
                         System.out.println();
                     }
 
-                    System.out.println("\nBotton-right: ");
+                    System.out.println("Botton-right: ");
                     for (int i = 0; i < height; i++) {
                         for (int j = 0; j < height; j++) {
                             if (j < height - i - 1) {
@@ -76,7 +76,7 @@ public class test {
                     }
                     break;
                 case 3:
-                    System.out.println("\nPrint isosceles triangle");
+                    System.out.println("Print isosceles triangle");
                     System.out.print("Input height: ");
                     int high = scanner.nextInt();
                     for (int i = 0; i < high; i++) {
