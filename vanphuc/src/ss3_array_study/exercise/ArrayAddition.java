@@ -3,7 +3,7 @@ package ss3_array_study.exercise;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class AddElementToArray {
+public class ArrayAddition {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Nhap so phan tu cua mang: ");
