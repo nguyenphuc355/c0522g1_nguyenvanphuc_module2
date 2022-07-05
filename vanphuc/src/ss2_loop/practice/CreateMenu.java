@@ -41,7 +41,6 @@ public class CreateMenu {
                     break;
                 case 0:
                     System.exit(0);
-                    System.out.println("Goodbye");
                 default:
                     System.out.println("No choice!");
             }

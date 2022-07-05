@@ -6,21 +6,21 @@ public class GreatestCommonDivisor {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number fist: ");
-        int numberFist = sc.nextInt();
+        int numberFirst = sc.nextInt();
         System.out.print("Enter number second: ");
         int numberSecond = sc.nextInt();
-        numberFist = Math.abs(numberFist);
+        numberFirst = Math.abs(numberFirst);
         numberSecond = Math.abs(numberSecond);
-        if (numberFist == 0 || numberSecond == 0) {
+        if (numberFirst == 0 || numberSecond == 0) {
             System.out.println("No greatest common factor");
         }
-        while (numberFist != numberSecond) {
-            if (numberFist > numberSecond) {
-                numberFist = numberFist - numberSecond;
+        while (numberFirst != numberSecond) {
+            if (numberFirst > numberSecond) {
+                numberFirst = numberFirst - numberSecond;
             } else {
-                numberSecond = numberSecond - numberFist;
+                numberSecond = numberSecond - numberFirst;
             }
         }
-        System.out.println("Greatest common factor: " + numberFist);
+        System.out.println("Greatest common factor: " + numberFirst);
     }
 }
