@@ -1,9 +1,11 @@
 package ss4_class_and_object.exercise.QuaradticEquation;
 
-class QuaradticEquation {
-    double a, b, c;
+class QuadraticEquation {
+    double a;
+    double b;
+    double c;
 
-    QuaradticEquation(double a, double b, double c) {
+    QuadraticEquation(double a, double b, double c) {
         this.a = a;
         this.b = b;
         this.c = c;
@@ -37,8 +39,8 @@ class QuaradticEquation {
         if (getDelta() > 0) {
             return "phuong trinh co 2 nghiem: x1 = " + getRoot1() + "x2 = " + getRoot2();
         }
-        if (getDelta()==0){
-            return "phuong trinh co nghiem kep: x1 = x2 = "+getRoot1();
+        if (getDelta() == 0) {
+            return "phuong trinh co nghiem kep: x1 = x2 = " + getRoot1();
         }
         return "phuong trinh vo nghiem";
     }
