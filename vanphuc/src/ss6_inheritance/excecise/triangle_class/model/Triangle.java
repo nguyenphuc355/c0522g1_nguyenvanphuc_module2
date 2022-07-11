@@ -44,7 +44,5 @@ public class Triangle extends Shape{
     public void setSide3(double side3) {
         this.side3 = side3;
     }
-    public double getArea(){
-        return "Area = "+
-    }
+
 }
