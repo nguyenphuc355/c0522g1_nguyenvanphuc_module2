@@ -2,7 +2,7 @@ package ss6_inheritance.practice.GeometricObjects.Controller;
 
 import ss6_inheritance.practice.GeometricObjects.Model.Rectangle;
 
-public class RectangleTest {
+public class RectangleTestController {
     public static void main(String[] args) {
         Rectangle rectangle= new Rectangle();
         System.out.println(rectangle);

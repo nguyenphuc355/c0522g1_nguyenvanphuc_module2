@@ -2,7 +2,7 @@ package ss6_inheritance.practice.GeometricObjects.Controller;
 
 import ss6_inheritance.practice.GeometricObjects.Model.Square;
 
-public class SquareTest {
+public class SquareTestController {
     public static void main(String[] args) {
         Square square = new Square();
         System.out.println(square);
