@@ -1,9 +1,6 @@
 package ss7_abstract_class_interface.excecise.interface_colorable.controller;
 
-import ss7_abstract_class_interface.excecise.interface_colorable.model.Circle;
-import ss7_abstract_class_interface.excecise.interface_colorable.model.Rectangle;
-import ss7_abstract_class_interface.excecise.interface_colorable.model.Shape;
-import ss7_abstract_class_interface.excecise.interface_colorable.model.Square;
+import ss7_abstract_class_interface.excecise.interface_colorable.model.*;
 
 public class MainController {
     public static void main(String[] args) {
@@ -13,8 +10,8 @@ public class MainController {
         shapes[2] = new Square(10);
 
         for (Shape shape : shapes) {
-            if (shape instanceof Square) {
-                ((Square) shape).howToColor();
+            if (shape instanceof Colorable) {
+                ((Colorable) shape).howToColor();
             }
         }
     }
