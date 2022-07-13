@@ -1,4 +1,4 @@
-package mvc.veiw;
+package mvc.view;
 
 import mvc.controller.MainController;
 
