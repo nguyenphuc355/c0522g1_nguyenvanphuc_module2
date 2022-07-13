@@ -51,11 +51,14 @@ public class TennisGame {
         int minusResult = firstPlayerScore - secondPlayerScore;
         if (minusResult == 1) {
             return "Advantage player1";
-        } else if (minusResult == -1) {
+        }
+        else if (minusResult == -1) {
             return "Advantage player2";
-        } else if (minusResult >= 2) {
+        }
+        else if (minusResult >= 2) {
             return "Win for player1";
-        } else {
+        }
+        else {
             return "Win for player2";
         }
     }
