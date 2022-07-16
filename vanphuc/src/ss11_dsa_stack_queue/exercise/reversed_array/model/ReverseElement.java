@@ -4,7 +4,7 @@ package ss11_dsa_stack_queue.exercise.reversed_array.model;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class MyStack {
+public class ReverseElement {
     public static void stackStudy() {
         Stack<Integer> integerStack = new Stack<>();
         Scanner scanner = new Scanner(System.in);

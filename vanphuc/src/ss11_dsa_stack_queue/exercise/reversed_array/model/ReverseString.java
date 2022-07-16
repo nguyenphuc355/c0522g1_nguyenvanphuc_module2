@@ -3,7 +3,7 @@ package ss11_dsa_stack_queue.exercise.reversed_array.model;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class MyChain {
+public class ReverseString {
     public static void chain() {
         Stack<Character> characterStack = new Stack<>();
         Scanner scanner = new Scanner(System.in);
