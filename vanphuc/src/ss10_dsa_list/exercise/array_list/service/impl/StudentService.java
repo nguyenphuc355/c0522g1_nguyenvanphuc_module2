@@ -1,6 +1,5 @@
 package ss10_dsa_list.exercise.array_list.service.impl;
 
-import ss10_dsa_list.exercise.array_list.service.IStudentService;
 
 import java.util.Arrays;
 
@@ -50,7 +49,7 @@ public class StudentService<E> implements IStudentService {
         return true;
     }
 
-    @Override
+
     public void add(Object elements, int index) {
         if (index > element.length) {
             throw new IllegalArgumentException("Index: " + index);
@@ -102,7 +101,7 @@ public class StudentService<E> implements IStudentService {
 
 
     public StudentService<E> clone() {
-        StudentService<E> eStudentService = new StudentService<>();
+        StudentService<E> eStudentService = (StudentService<E>) new StudentService<Object>();
         eStudentService.element = Arrays.copyOf(this.element, this.size);
         eStudentService.size = this.size;
         return eStudentService;
