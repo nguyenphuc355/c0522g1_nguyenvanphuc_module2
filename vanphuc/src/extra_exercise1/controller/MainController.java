@@ -3,8 +3,6 @@ package extra_exercise1.controller;
 import java.util.Scanner;
 
 public class MainController {
-    public MainController(String seaOfControl, String manufacturer, int yearOfManufacture, String owner, int wattage) {
-    }
 
     public static void menuController(){
         CarController carController = new CarController();

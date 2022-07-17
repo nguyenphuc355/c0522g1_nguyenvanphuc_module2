@@ -24,4 +24,9 @@ public class PersonService implements IPersonService {
         }
 
     }
+
+    @Override
+    public void add() {
+
+    }
 }

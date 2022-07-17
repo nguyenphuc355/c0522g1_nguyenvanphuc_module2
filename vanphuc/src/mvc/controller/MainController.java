@@ -30,6 +30,7 @@ public class MainController {
             }
             switch (choose) {
                 case 1:
+                    iPersonService.add();
                     break;
                 case 2:
                     iPersonService.findAll();
