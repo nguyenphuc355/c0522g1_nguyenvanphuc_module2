@@ -9,7 +9,7 @@ public class CarController {
     private Scanner scanner = new Scanner(System.in);
     private ICarrService iCarrService = new CarService();
 
-    public void menuCar(){
+    public void menuCar() {
         do {
             System.out.println("1. Them oto\n" +
                     "2. Hien thi oto\n" +
@@ -19,7 +19,7 @@ public class CarController {
 
             int choose = Integer.parseInt(scanner.nextLine());
 
-            switch (choose){
+            switch (choose) {
                 case 1:
                     iCarrService.addCar();
                     break;
@@ -35,6 +35,6 @@ public class CarController {
                 case 5:
                     return;
             }
-        }while (true);
+        } while (true);
     }
 }
