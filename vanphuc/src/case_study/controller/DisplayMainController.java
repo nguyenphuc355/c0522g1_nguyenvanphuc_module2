@@ -19,7 +19,6 @@ public class DisplayMainController {
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose){
                 case 1:
-
                 case 2:
                 case 3:
                 case 4:

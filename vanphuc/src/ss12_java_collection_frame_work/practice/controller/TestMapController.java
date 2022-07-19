@@ -1,11 +1,11 @@
-package ss12_java_collection_frame_work.practice;
+package ss12_java_collection_frame_work.practice.controller;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class TestMap {
+public class TestMapController {
     public static void main(String[] args) {
        Map<String, Integer> integerMap = new HashMap<>();
        integerMap.put("Smith",30);

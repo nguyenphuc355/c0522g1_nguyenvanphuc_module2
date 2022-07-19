@@ -14,7 +14,8 @@ public class LecturerController {
             System.out.println("1. them moi giang vien\n" +
                     "2. xoa giang vien\n" +
                     "3. hien thi danh sach giang vien\n" +
-                    "4. quya ve menu chinh");
+                    "4. Tim giang vien" +
+                    "5. quay ve menu chinh");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
@@ -27,7 +28,11 @@ public class LecturerController {
                     iLecturerService.displayAllLecturer();
                     break;
                 case 4:
+
+                    iLecturerService.findLecturer();
+                case 5:
                     return;
+
             }
         } while (true);
     }

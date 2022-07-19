@@ -1,11 +1,13 @@
-package ss12_java_collection_frame_work.practice;
+package ss12_java_collection_frame_work.practice.controller;
+
+import ss12_java_collection_frame_work.practice.model.Student;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class MainStudent {
+public class MainStudentController {
     public static void main(String[] args) {
         Student student = new Student("Nam",20,"Ha noi");
         Student student1 = new Student("Hung",22,"Ha noi");

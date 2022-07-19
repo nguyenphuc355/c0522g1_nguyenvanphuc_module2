@@ -1,4 +1,4 @@
-package ss12_java_collection_frame_work.practice;
+package ss12_java_collection_frame_work.practice.model;
 
 public class Student {
     private String name;

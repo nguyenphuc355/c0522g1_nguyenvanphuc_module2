@@ -50,6 +50,47 @@ public class StudentService implements IStudentService {
         }
     }
 
+    @Override
+    public void findStudent() {
+        int choose;
+        boolean isFind = false;
+        do {
+            System.out.println("Tìm kiếm theo: \n" +
+                    "1. Id\n" +
+                    "2. Name.");
+
+            choose = Integer.parseInt(scanner.nextLine());
+            if (choose != 1 && choose != 2) {
+                System.out.println("=======yeu cau sai, moi nhap lai======= ");
+            }
+        } while (choose != 1 && choose != 2);
+        if (choose==1){
+            System.out.print("Nhap id can tim: ");
+            int idFind = Integer.parseInt(scanner.nextLine());
+            for (Student student : studentList){
+                if (student.getId()==idFind){
+                    System.out.println(student);
+                    isFind = true;
+                    break;
+                }
+            }
+        }else {
+            System.out.print("Nhap ten cam tim kiem: ");
+            String name = scanner.nextLine();
+
+            for (Student student : studentList){
+                if (student.getName().contains(name)){
+                    System.out.println(student);
+                    isFind = true;
+                    break;
+                }
+            }
+        }
+        if (!isFind){
+            System.out.println("====khong tim thay sinh vien====");
+        }
+    }
+
     public static Student infoStudent() {
         System.out.print("nhap id:");
         int id = Integer.parseInt(scanner.nextLine());

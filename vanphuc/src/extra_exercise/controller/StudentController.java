@@ -14,7 +14,8 @@ public class StudentController {
             System.out.println("1. Them moi hoc sinh\n" +
                     "2. Xoa hoc sinh\n" +
                     "3. Hien thi hoc sinh\n" +
-                    "4. Quay ve menu chinh");
+                    "4. Tim hoc sinh\n" +
+                    "5. Quay ve menu chinh");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
@@ -27,6 +28,8 @@ public class StudentController {
                     iStudentService.disPlayAllStudent();
                     break;
                 case 4:
+                    iStudentService.findStudent();
+                case 5:
                     return;
             }
         } while (true);

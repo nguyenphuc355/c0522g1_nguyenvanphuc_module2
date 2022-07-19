@@ -7,4 +7,6 @@ public interface ILecturerService {
     void removeLecturer();
 
     void displayAllLecturer();
+
+    void findLecturer();
 }
