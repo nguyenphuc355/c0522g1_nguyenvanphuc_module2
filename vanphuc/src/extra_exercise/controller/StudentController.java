@@ -6,16 +6,18 @@ import extra_exercise.service.impl.StudentService;
 import java.util.Scanner;
 
 public class StudentController {
-    private Scanner scanner = new Scanner(System.in);
-    private IStudentService iStudentService = new StudentService();
+    private  Scanner scanner = new Scanner(System.in);
+    private  IStudentService iStudentService = new StudentService();
 
     public void menuStudent() {
         do {
-            System.out.println("1. Them moi hoc sinh\n" +
-                    "2. Xoa hoc sinh\n" +
-                    "3. Hien thi hoc sinh\n" +
-                    "4. Tim hoc sinh\n" +
-                    "5. Quay ve menu chinh");
+            System.out.println("""
+                    1. Them moi hoc sinh
+                    2. Xoa hoc sinh
+                    3. Hien thi hoc sinh
+                    4. Tim hoc sinh theo id
+                    5. Tim hoc sinh theo ten
+                    6. Quay ve menu chinh""");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
@@ -28,8 +30,12 @@ public class StudentController {
                     iStudentService.disPlayAllStudent();
                     break;
                 case 4:
-                    iStudentService.findStudent();
+                    iStudentService.findStudentById();
+                    break;
                 case 5:
+                    iStudentService.findStudentByName();
+                    break;
+                case 6:
                     return;
             }
         } while (true);

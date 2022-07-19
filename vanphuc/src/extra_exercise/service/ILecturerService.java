@@ -8,5 +8,7 @@ public interface ILecturerService {
 
     void displayAllLecturer();
 
-    void findLecturer();
+    void findLecturerById();
+
+    void findLecturerByName();
 }

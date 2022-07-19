@@ -6,16 +6,17 @@ import extra_exercise1.service.impl.MotorcycleService;
 import java.util.Scanner;
 
 public class MotorcycleController {
-    private Scanner scanner = new Scanner(System.in);
-    private IMotorcycleService iMotorcycleService = new MotorcycleService();
+    private final Scanner scanner = new Scanner(System.in);
+    private final IMotorcycleService iMotorcycleService = new MotorcycleService();
 
     public void menuMotorcycle(){
         do {
-            System.out.println("1. Them xe may\n" +
-                    "2. Hien thi xe may\n" +
-                    "3. Xoa xe may\n" +
-                    "4. Tim kiem xe may\n" +
-                    "5. Quay ve menu chinh");
+            System.out.println("""
+                    1. Them xe may
+                    2. Hien thi xe may
+                    3. Xoa xe may
+                    4. Tim kiem xe may
+                    5. Quay ve menu chinh""");
 
             int choose = Integer.parseInt(scanner.nextLine());
 

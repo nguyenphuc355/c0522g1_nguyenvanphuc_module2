@@ -6,6 +6,8 @@ public interface IStudentService {
     void removeStudent();
 
     void disPlayAllStudent();
+    
+    void findStudentById();
 
-    void findStudent();
+    void findStudentByName();
 }

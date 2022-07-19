@@ -11,11 +11,12 @@ public class MainController {
 
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println("==== DANH SACH PHUONG TIEN ====\n"+
-                    "1. Quan ly oto\n" +
-                    "2. Quan ly xe tai\n" +
-                    "3. Quan ly xe may\n" +
-                    "4. thoat chuong trinh");
+            System.out.println("""
+                    ==== DANH SACH PHUONG TIEN ====
+                    1. Quan ly oto
+                    2. Quan ly xe tai
+                    3. Quan ly xe may
+                    4. thoat chuong trinh""");
 
             System.out.print("moi ban nhap lua chon: ");
 

@@ -3,15 +3,18 @@ package extra_exercise.service.impl;
 import extra_exercise.model.Student;
 import extra_exercise.service.IStudentService;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class StudentService implements IStudentService {
-    private static List<Student> studentList = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
+    private static  List<Student> studentList = new ArrayList<>();
+    private static  Scanner scanner = new Scanner(System.in);
 
-
+    /**
+     * thêm học sinh mới vào danh sách
+     */
     @Override
     public void addStudent() {
         Student student = infoStudent();
@@ -19,6 +22,9 @@ public class StudentService implements IStudentService {
         System.out.println("them moi thanh cong! ");
     }
 
+    /**
+     * xóa học sinh khỏi danh sách
+     */
     @Override
     public void removeStudent() {
         System.out.print("moi ban nhap id can xoa: ");
@@ -26,9 +32,10 @@ public class StudentService implements IStudentService {
         boolean isFlag = false;
         for (Student student : studentList) {
             if (student.getId() == idRemove) {
-                System.out.println("Ban muon xoa hay khong?\n" +
-                        "1. co\n" +
-                        "2. khong");
+                System.out.println("""
+                        Ban muon xoa hay khong?
+                        1. co
+                        2. khong""");
                 int chooseYesNo = Integer.parseInt(scanner.nextLine());
                 if (chooseYesNo == 1) {
                     studentList.remove(student);
@@ -43,6 +50,9 @@ public class StudentService implements IStudentService {
         }
     }
 
+    /**
+     * hiển thị danh sách học sinh
+     */
     @Override
     public void disPlayAllStudent() {
         for (Student student : studentList) {
@@ -50,44 +60,44 @@ public class StudentService implements IStudentService {
         }
     }
 
+    /**
+     * tìm kiếm học sinh trong danh sách theo id
+     */
+
     @Override
-    public void findStudent() {
-        int choose;
-        boolean isFind = false;
-        do {
-            System.out.println("Tìm kiếm theo: \n" +
-                    "1. Id\n" +
-                    "2. Name.");
-
-            choose = Integer.parseInt(scanner.nextLine());
-            if (choose != 1 && choose != 2) {
-                System.out.println("=======yeu cau sai, moi nhap lai======= ");
-            }
-        } while (choose != 1 && choose != 2);
-        if (choose==1){
-            System.out.print("Nhap id can tim: ");
-            int idFind = Integer.parseInt(scanner.nextLine());
-            for (Student student : studentList){
-                if (student.getId()==idFind){
-                    System.out.println(student);
-                    isFind = true;
-                    break;
-                }
-            }
-        }else {
-            System.out.print("Nhap ten cam tim kiem: ");
-            String name = scanner.nextLine();
-
-            for (Student student : studentList){
-                if (student.getName().contains(name)){
-                    System.out.println(student);
-                    isFind = true;
-                    break;
-                }
+    public void findStudentById() {
+        System.out.print("nhap id muon tim: ");
+        int idFind = Integer.parseInt(scanner.nextLine());
+        boolean isFlag = false;
+        for (Student student : studentList) {
+            if (student.getId() == idFind) {
+                System.out.println(student);
+                isFlag = true;
+                break;
             }
         }
-        if (!isFind){
-            System.out.println("====khong tim thay sinh vien====");
+        if (!isFlag) {
+            System.out.println("=====Khong tim thay=====");
+        }
+    }
+
+    /**
+     * tìm kiếm học sinh theo tên
+     */
+    @Override
+    public void findStudentByName() {
+        boolean isExist = false;
+        System.out.print("Moi nhap ten can tim: : ");
+        String nameFind = scanner.nextLine();
+
+        for (Student student : studentList) {
+            if (student.getName().contains(nameFind)) {
+                System.out.println(student);
+                isExist = true;
+            }
+        }
+        if (!isExist) {
+            System.out.println("=====Khong tim thay=====");
         }
     }
 
@@ -104,7 +114,6 @@ public class StudentService implements IStudentService {
         String classes = scanner.nextLine();
         System.out.print("nhap diem:");
         double point = Double.parseDouble(scanner.nextLine());
-        Student student = new Student(id, name, dateOfBirth, gender, classes, point);
-        return student;
+        return new Student(id, name, dateOfBirth, gender, classes, point);
     }
 }

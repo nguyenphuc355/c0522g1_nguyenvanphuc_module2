@@ -6,16 +6,17 @@ import extra_exercise1.service.impl.CarService;
 import java.util.Scanner;
 
 public class CarController {
-    private Scanner scanner = new Scanner(System.in);
-    private ICarrService iCarrService = new CarService();
+    private final Scanner scanner = new Scanner(System.in);
+    private final ICarrService iCarrService = new CarService();
 
     public void menuCar() {
         do {
-            System.out.println("1. Them oto\n" +
-                    "2. Hien thi oto\n" +
-                    "3. Xoa oto\n" +
-                    "4. Tim kiem oto\n" +
-                    "5. Quay ve menu chinh");
+            System.out.println("""
+                    1. Them oto
+                    2. Hien thi oto
+                    3. Xoa oto
+                    4. Tim kiem oto
+                    5. Quay ve menu chinh""");
 
             int choose = Integer.parseInt(scanner.nextLine());
 

@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TruckService implements ITruckService {
-private static List<Truck> truckList = new ArrayList<>();
-private static Scanner scanner = new Scanner(System.in);
+private static final List<Truck> truckList = new ArrayList<>();
+private static final Scanner scanner = new Scanner(System.in);
     @Override
     public void addTruck() {
         Truck truck = infoTruck();
@@ -31,9 +31,10 @@ private static Scanner scanner = new Scanner(System.in);
         boolean isFlag = false;
         for (Truck truck: truckList){
             if (truck.getSeaOfControl().equals(seaOfControlRemove)){
-                System.out.println("ban co muon xoa khong\n" +
-                        "1. co\n" +
-                        "2. khong");
+                System.out.println("""
+                        ban co muon xoa khong
+                        1. co
+                        2. khong""");
 
                 int chooseYesNo = Integer.parseInt(scanner.nextLine());
                 if (chooseYesNo==1){
@@ -82,7 +83,6 @@ private static Scanner scanner = new Scanner(System.in);
         System.out.print(" nhap trong tai:");
         int tonnage = Integer.parseInt(scanner.nextLine());
 
-        Truck truck = new Truck(seaOfControl,manufacturer,yearOfManufacture,owner,tonnage);
-        return truck;
+        return new Truck(seaOfControl,manufacturer,yearOfManufacture,owner,tonnage);
     }
 }

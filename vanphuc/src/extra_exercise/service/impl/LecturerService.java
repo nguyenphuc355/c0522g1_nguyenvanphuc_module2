@@ -2,7 +2,6 @@ package extra_exercise.service.impl;
 
 
 import extra_exercise.model.Lecturer;
-import extra_exercise.model.Student;
 import extra_exercise.service.ILecturerService;
 
 import java.util.ArrayList;
@@ -10,9 +9,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class LecturerService implements ILecturerService {
-    private static List<Lecturer> lecturerList = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
+    private static  List<Lecturer> lecturerList = new ArrayList<>();
+    private static  Scanner scanner = new Scanner(System.in);
 
+    /**
+     * thêm giảng viên mới vào danh sách
+     */
     @Override
     public void addLecturer() {
         Lecturer lecturer = infoLecturer();
@@ -20,6 +22,9 @@ public class LecturerService implements ILecturerService {
         System.out.println("them thanh cong!");
     }
 
+    /**
+     * xóa giảng viên khỏi danh sách
+     */
     @Override
     public void removeLecturer() {
         System.out.print("nhap id can xoa: ");
@@ -27,9 +32,10 @@ public class LecturerService implements ILecturerService {
         boolean isFlag = false;
         for (Lecturer lecturer : lecturerList) {
             if (lecturer.getId() == idRemove) {
-                System.out.println("ban co muon xoa khong?\n" +
-                        "1. co\n" +
-                        "2. khong");
+                System.out.println("""
+                        ban co muon xoa khong?
+                        1. co
+                        2. khong""");
 
                 int chooseYesNo = Integer.parseInt(scanner.nextLine());
                 if (chooseYesNo == 1) {
@@ -45,6 +51,9 @@ public class LecturerService implements ILecturerService {
         }
     }
 
+    /**
+     * hiển thị danh sách giảng viên
+     */
     @Override
     public void displayAllLecturer() {
         for (Lecturer lecturer : lecturerList) {
@@ -52,51 +61,46 @@ public class LecturerService implements ILecturerService {
         }
     }
 
+    /**
+     * tim kiếm giảng viên theo id
+     */
     @Override
-    public void findLecturer() {
-        int choose;
-        boolean isExist = false;
-
-        do {
-            System.out.println("Tìm kiểm theo: \n" +
-                    "1. Id.\n" +
-                    "2. Tên.");
-            choose = Integer.parseInt(scanner.nextLine());
-
-            if (choose != 1 && choose != 2) {
-                System.out.println("Nhập lại!");
-            }
-        } while (choose != 1 && choose != 2);
-
-        if (choose == 1) {
-            System.out.println("Mời bạn nhập id cần tìm kiếm: ");
-            int idFind = Integer.parseInt(scanner.nextLine());
-
-            for (Lecturer lecturer : lecturerList) {
-                if (lecturer.getId() == idFind) {
-                    System.out.println(lecturer);
-                    isExist = true;
-                    break;
-                }
+    public void findLecturerById() {
+        System.out.print("nhap id muon tim: ");
+        int idFind = Integer.parseInt(scanner.nextLine());
+        boolean isFlag = false;
+        for (Lecturer lecturer : lecturerList) {
+            if (lecturer.getId() == idFind) {
+                System.out.println(lecturer);
+                isFlag = true;
+                break;
             }
         }
-        else {
-            System.out.println("Mời bạn nhập tên cần tìm kiếm: ");
-            String nameFind = scanner.nextLine();
-
-            for (Lecturer teacher : lecturerList) {
-                if (teacher.getName().contains(nameFind)) {
-                    System.out.println(teacher);
-                    isExist = true;
-                }
-            }
+        if (!isFlag) {
+            System.out.println("=====Khong tim thay=====");
         }
-
-        if (!isExist) {
-            System.out.println("Không tìm thấy!");
-        }
-
     }
+
+    /**
+     * tìm kiếm giảng viên theo tên
+     */
+    @Override
+    public void findLecturerByName() {
+        boolean isExist = false;
+        System.out.print("Moi nhap ten can tim: : ");
+        String nameFind = scanner.nextLine();
+
+        for (Lecturer lecturer : lecturerList) {
+            if (lecturer.getName().contains(nameFind)) {
+                System.out.println(lecturer);
+                isExist = true;
+            }
+        }
+        if (!isExist) {
+            System.out.println("=====Khong tim thay=====");
+        }
+    }
+
 
     public static Lecturer infoLecturer() {
         System.out.print("nhap id: ");
@@ -109,8 +113,7 @@ public class LecturerService implements ILecturerService {
         String gender = scanner.nextLine();
         System.out.print("nhap chuyen mon : ");
         String specialize = scanner.nextLine();
-        Lecturer lecturer = new Lecturer(id, name, gender, dateOfBirth, specialize);
-        return lecturer;
+        return new Lecturer(id, name, gender, dateOfBirth, specialize);
     }
 }
 

@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MotorcycleService implements IMotorcycleService {
-    private static List<Motorcycle> motorcycleList = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
+    private static  List<Motorcycle> motorcycleList = new ArrayList<>();
+    private static  Scanner scanner = new Scanner(System.in);
 
 
     public static Motorcycle infoMotorcycle(){
@@ -30,8 +30,7 @@ public class MotorcycleService implements IMotorcycleService {
         System.out.print("Nhap cong suat: ");
         int wattage = Integer.parseInt(scanner.nextLine());
 
-        Motorcycle motorcycle  = new Motorcycle(seaOfControl,manufacturer,yearOfManufacture,owner,wattage);
-        return motorcycle;
+        return new Motorcycle(seaOfControl,manufacturer,yearOfManufacture,owner,wattage);
 
     }
 
