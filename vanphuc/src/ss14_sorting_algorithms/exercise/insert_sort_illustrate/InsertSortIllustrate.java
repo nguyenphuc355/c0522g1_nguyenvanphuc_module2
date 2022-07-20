@@ -22,10 +22,12 @@ public class InsertSortIllustrate {
     public static void insertSortByStep(int[] list) {
 
         for (int i = 1; i < list.length; i++) {
-
+            System.out.println("lay gia tri:  " + list[i]);
             int key = list[i];
             int j;
             for (j = i - 1; j >= 0 && list[j] > key; j--) {
+                System.out.println(list[j] + " > " + key);
+                System.out.println("hoan doi vi tri " + list[j + 1] + " cho " + list[j]);
                 list[j + 1] = list[j];
             }
             list[j + 1] = key;

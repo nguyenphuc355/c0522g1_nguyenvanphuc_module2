@@ -15,9 +15,9 @@ public class LecturerService implements ILecturerService {
 
     static {
     lecturerList.add(new Lecturer(1,"Oanh","1990","nu","Toan"));
-    lecturerList.add(new Lecturer(2,"Hau","1989","nu","Van"));
+    lecturerList.add(new Lecturer(2,"Hau","1989","nam","Van"));
     lecturerList.add(new Lecturer(3,"Tra","1987","nu","Anh"));
-    lecturerList.add(new Lecturer(4,"Yen","1992","nu","Ly"));
+    lecturerList.add(new Lecturer(4,"Yen","1992","nam","Ly"));
     }
 
     /**
