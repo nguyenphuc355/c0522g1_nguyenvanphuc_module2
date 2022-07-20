@@ -17,7 +17,8 @@ public class StudentController {
                     3. Hien thi hoc sinh
                     4. Tim hoc sinh theo id
                     5. Tim hoc sinh theo ten
-                    6. Quay ve menu chinh""");
+                    6. Sap xep hoc sinh theo ten
+                    7. Quay ve menu chinh""");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
@@ -36,6 +37,9 @@ public class StudentController {
                     iStudentService.findStudentByName();
                     break;
                 case 6:
+                    iStudentService.bubbleSortName();
+                    break;
+                case 7:
                     return;
             }
         } while (true);

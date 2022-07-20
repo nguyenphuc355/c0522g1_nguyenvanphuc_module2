@@ -15,7 +15,9 @@ public class LecturerController {
                     1. them moi giang vien
                     2. xoa giang vien
                     3. hien thi danh sach giang vien
-                    4. Tim giang vien theo id5. Tim giang vien theo ten
+                    4. Tim giang vien theo id
+                    5. Tim giang vien theo ten
+                    6. Sap xep theo ten
                     6. quay ve menu chinh""");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
@@ -35,6 +37,9 @@ public class LecturerController {
                     iLecturerService.findLecturerByName();
                     break;
                 case 6:
+                    iLecturerService.bubbleSortLecturer();
+                    break;
+                case 7:
                     return;
 
             }

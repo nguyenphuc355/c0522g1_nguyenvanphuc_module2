@@ -5,12 +5,20 @@ import extra_exercise.model.Lecturer;
 import extra_exercise.service.ILecturerService;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class LecturerService implements ILecturerService {
-    private static  List<Lecturer> lecturerList = new ArrayList<>();
-    private static  Scanner scanner = new Scanner(System.in);
+    private static List<Lecturer> lecturerList = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
+
+    static {
+    lecturerList.add(new Lecturer(1,"Oanh","1990","nu","Toan"));
+    lecturerList.add(new Lecturer(2,"Hau","1989","nu","Van"));
+    lecturerList.add(new Lecturer(3,"Tra","1987","nu","Anh"));
+    lecturerList.add(new Lecturer(4,"Yen","1992","nu","Ly"));
+    }
 
     /**
      * thêm giảng viên mới vào danh sách
@@ -98,6 +106,20 @@ public class LecturerService implements ILecturerService {
         }
         if (!isExist) {
             System.out.println("=====Khong tim thay=====");
+        }
+    }
+
+    @Override
+    public void bubbleSortLecturer() {
+        boolean isSwap = true;
+        for (int i = 0; i < lecturerList.size() - 1 && isSwap; i++) {
+            isSwap = false;
+            for (int j = 0; j < lecturerList.size() - 1 - i; j++) {
+                if (lecturerList.get(j).getName().compareTo(lecturerList.get(j + 1).getName()) > 0) {
+                    Collections.swap(lecturerList, j, j + 1);
+                    isSwap = true;
+                }
+            }
         }
     }
 

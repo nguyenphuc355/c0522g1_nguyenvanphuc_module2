@@ -5,14 +5,23 @@ import extra_exercise.service.IStudentService;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class StudentService implements IStudentService {
-    private static  List<Student> studentList = new ArrayList<>();
-    private static  Scanner scanner = new Scanner(System.in);
+    private static List<Student> studentList = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
+
+    static {
+        studentList.add(new Student(1, "Thanh", "1993", "man", "c05", 5));
+        studentList.add(new Student(2, "Huan", "1995", "man", "c05", 6));
+        studentList.add(new Student(3, "Ty", "2000", "man", "c05", 7));
+        studentList.add(new Student(4, "Nam", "2001", "man", "c05", 8));
+    }
 
     /**
+     * creater :Nguyễn Văn phúc
      * thêm học sinh mới vào danh sách
      */
     @Override
@@ -99,6 +108,21 @@ public class StudentService implements IStudentService {
         if (!isExist) {
             System.out.println("=====Khong tim thay=====");
         }
+    }
+
+    @Override
+    public void bubbleSortName() {
+        boolean isSwap = true;
+        for (int i = 0; i < studentList.size() - 1 && isSwap; i++) {
+            isSwap = false;
+            for (int j = 0; j < studentList.size() - 1 - i; j++) {
+                if ((studentList.get(j).getName().compareTo(studentList.get(j + 1).getName())) > 0) {
+                    Collections.swap(studentList, j, j + 1);
+                    isSwap = true;
+                }
+            }
+        }
+        // System.out.println(studentList);
     }
 
     public static Student infoStudent() {

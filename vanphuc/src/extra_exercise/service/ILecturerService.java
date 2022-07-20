@@ -11,4 +11,6 @@ public interface ILecturerService {
     void findLecturerById();
 
     void findLecturerByName();
+
+    void bubbleSortLecturer();
 }
