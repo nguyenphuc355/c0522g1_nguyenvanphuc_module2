@@ -1,5 +1,6 @@
 package extra_exercise.service.impl;
 
+import extra_exercise.exception.DuplicateIDException;
 import extra_exercise.model.Student;
 import extra_exercise.service.IStudentService;
 
@@ -37,7 +38,15 @@ public class StudentService implements IStudentService {
     @Override
     public void removeStudent() {
         System.out.print("moi ban nhap id can xoa: ");
-        int idRemove = Integer.parseInt(scanner.nextLine());
+        int idRemove = 0;
+        while (true) {
+            try {
+                idRemove = Integer.parseInt(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Phai nhap so");
+            }
+        }
         boolean isFlag = false;
         for (Student student : studentList) {
             if (student.getId() == idRemove) {
@@ -76,7 +85,15 @@ public class StudentService implements IStudentService {
     @Override
     public void findStudentById() {
         System.out.print("nhap id muon tim: ");
-        int idFind = Integer.parseInt(scanner.nextLine());
+        int idFind = 0;
+        while (true) {
+            try {
+                idFind = Integer.parseInt(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Phai nhap so");
+            }
+        }
         boolean isFlag = false;
         for (Student student : studentList) {
             if (student.getId() == idFind) {
@@ -126,8 +143,23 @@ public class StudentService implements IStudentService {
     }
 
     public static Student infoStudent() {
-        System.out.print("nhap id:");
-        int id = Integer.parseInt(scanner.nextLine());
+        System.out.print("nhap id moi:");
+        int newId ;
+        while (true) {
+            try {
+                newId = Integer.parseInt(scanner.nextLine());
+                for (Student student: studentList){
+                    if (student.getId() == newId){
+                        throw new DuplicateIDException("id da co, vui long nhap lai!!");
+                    }
+                }
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Phai nhap so");
+            }catch (DuplicateIDException e){
+                System.out.println(e.getMessage());
+            }
+        }
         System.out.print("nhap name:");
         String name = scanner.nextLine();
         System.out.print("nhap ngay sinh:");
@@ -137,7 +169,16 @@ public class StudentService implements IStudentService {
         System.out.print("nhap lop:");
         String classes = scanner.nextLine();
         System.out.print("nhap diem:");
-        double point = Double.parseDouble(scanner.nextLine());
-        return new Student(id, name, dateOfBirth, gender, classes, point);
+        double point ;
+        while (true) {
+
+            try {
+                point = Double.parseDouble(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Phai nhap so");
+            }
+        }
+        return new Student(newId, name, dateOfBirth, gender, classes, point);
     }
 }

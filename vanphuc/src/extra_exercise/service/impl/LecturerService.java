@@ -1,6 +1,7 @@
 package extra_exercise.service.impl;
 
 
+import extra_exercise.exception.DuplicateIDException;
 import extra_exercise.model.Lecturer;
 import extra_exercise.service.ILecturerService;
 
@@ -36,7 +37,15 @@ public class LecturerService implements ILecturerService {
     @Override
     public void removeLecturer() {
         System.out.print("nhap id can xoa: ");
-        int idRemove = Integer.parseInt(scanner.nextLine());
+        int idRemove ;
+        while (true) {
+            try {
+                idRemove = Integer.parseInt(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Phai nhap so");
+            }
+        }
         boolean isFlag = false;
         for (Lecturer lecturer : lecturerList) {
             if (lecturer.getId() == idRemove) {
@@ -75,7 +84,15 @@ public class LecturerService implements ILecturerService {
     @Override
     public void findLecturerById() {
         System.out.print("nhap id muon tim: ");
-        int idFind = Integer.parseInt(scanner.nextLine());
+        int idFind ;
+        while (true) {
+            try {
+                idFind = Integer.parseInt(scanner.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Phai nhap so");
+            }
+        }
         boolean isFlag = false;
         for (Lecturer lecturer : lecturerList) {
             if (lecturer.getId() == idFind) {
@@ -126,7 +143,22 @@ public class LecturerService implements ILecturerService {
 
     public static Lecturer infoLecturer() {
         System.out.print("nhap id: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        int id;
+        while (true) {
+            try {
+                id = Integer.parseInt(scanner.nextLine());
+                for (Lecturer lecturer : lecturerList){
+                    if (lecturer.getId() == id){
+                        throw new DuplicateIDException("id da co, vui long nhap lai!!!");
+                    }
+                }
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Phai nhap so");
+            }catch (DuplicateIDException e){
+                System.out.println(e.getMessage());
+            }
+        }
         System.out.print("nhap name: ");
         String name = scanner.nextLine();
         System.out.print("nhap ngay sinh: ");
