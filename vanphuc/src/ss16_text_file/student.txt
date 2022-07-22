@@ -1,0 +1,7 @@
+1,
+Student{id=1, name='Huỳnh Văn Nam', score=5.0},Huỳnh Văn Nam2,
+Student{id=2, name='Võ Văn Tý', score=6.0},Võ Văn Tý3,
+Student{id=3, name='Lê Đại Lợi', score=7.0},Lê Đại Lợi4,
+Student{id=4, name='Huỳnh Trung Thuyên', score=8.0},Huỳnh Trung Thuyên5,
+Student{id=5, name='Hồ hải Học', score=9.0},Hồ hải Học1,
+Student{id=1, name='ưe', score=123.0},ưe

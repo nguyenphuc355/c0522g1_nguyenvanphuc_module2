@@ -9,11 +9,10 @@ public class StudyController {
 
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.println("""
-                    Welcome to my school!
-                    1. Quan ly hoc sinh
-                    2. Quan ly giang vien
-                    3. Thoat chuong trinh""");
+            System.out.println(" Welcome to my school!\n" +
+                    "1. Quan ly hoc sinh\n" +
+                    "2. Quan ly giang vien\n" +
+                    "3. Thoat chuong trinh");
 
             System.out.println("moi ban nhap lua chon: ");
             int choose = Integer.parseInt(scanner.nextLine());

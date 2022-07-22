@@ -15,10 +15,10 @@ public class LecturerService implements ILecturerService {
     private static Scanner scanner = new Scanner(System.in);
 
     static {
-    lecturerList.add(new Lecturer(1,"Oanh","1990","nu","Toan"));
-    lecturerList.add(new Lecturer(2,"Hau","1989","nam","Van"));
-    lecturerList.add(new Lecturer(3,"Tra","1987","nu","Anh"));
-    lecturerList.add(new Lecturer(4,"Yen","1992","nam","Ly"));
+        lecturerList.add(new Lecturer(1, "Oanh", "1990", "nu", "Toan"));
+        lecturerList.add(new Lecturer(2, "Hau", "1989", "nam", "Van"));
+        lecturerList.add(new Lecturer(3, "Tra", "1987", "nu", "Anh"));
+        lecturerList.add(new Lecturer(4, "Yen", "1992", "nam", "Ly"));
     }
 
     /**
@@ -37,7 +37,7 @@ public class LecturerService implements ILecturerService {
     @Override
     public void removeLecturer() {
         System.out.print("nhap id can xoa: ");
-        int idRemove ;
+        int idRemove;
         while (true) {
             try {
                 idRemove = Integer.parseInt(scanner.nextLine());
@@ -49,10 +49,9 @@ public class LecturerService implements ILecturerService {
         boolean isFlag = false;
         for (Lecturer lecturer : lecturerList) {
             if (lecturer.getId() == idRemove) {
-                System.out.println("""
-                        ban co muon xoa khong?
-                        1. co
-                        2. khong""");
+                System.out.println(" ban co muon xoa khong?\n" +
+                        "1. co\n" +
+                        "2. khong");
 
                 int chooseYesNo = Integer.parseInt(scanner.nextLine());
                 if (chooseYesNo == 1) {
@@ -84,7 +83,7 @@ public class LecturerService implements ILecturerService {
     @Override
     public void findLecturerById() {
         System.out.print("nhap id muon tim: ");
-        int idFind ;
+        int idFind;
         while (true) {
             try {
                 idFind = Integer.parseInt(scanner.nextLine());
@@ -147,15 +146,15 @@ public class LecturerService implements ILecturerService {
         while (true) {
             try {
                 id = Integer.parseInt(scanner.nextLine());
-                for (Lecturer lecturer : lecturerList){
-                    if (lecturer.getId() == id){
+                for (Lecturer lecturer : lecturerList) {
+                    if (lecturer.getId() == id) {
                         throw new DuplicateIDException("id da co, vui long nhap lai!!!");
                     }
                 }
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Phai nhap so");
-            }catch (DuplicateIDException e){
+            } catch (DuplicateIDException e) {
                 System.out.println(e.getMessage());
             }
         }

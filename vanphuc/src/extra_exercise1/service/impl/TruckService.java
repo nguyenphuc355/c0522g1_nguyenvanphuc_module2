@@ -8,8 +8,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TruckService implements ITruckService {
-private static final List<Truck> truckList = new ArrayList<>();
-private static final Scanner scanner = new Scanner(System.in);
+    private static final List<Truck> truckList = new ArrayList<>();
+    private static final Scanner scanner = new Scanner(System.in);
+
     @Override
     public void addTruck() {
         Truck truck = infoTruck();
@@ -19,7 +20,7 @@ private static final Scanner scanner = new Scanner(System.in);
 
     @Override
     public void displayTruck() {
-        for (Truck truck : truckList){
+        for (Truck truck : truckList) {
             System.out.println(truck);
         }
     }
@@ -29,15 +30,14 @@ private static final Scanner scanner = new Scanner(System.in);
         System.out.println(" nhap bien kiem soat can xoa");
         String seaOfControlRemove = scanner.nextLine();
         boolean isFlag = false;
-        for (Truck truck: truckList){
-            if (truck.getSeaOfControl().equals(seaOfControlRemove)){
-                System.out.println("""
-                        ban co muon xoa khong
-                        1. co
-                        2. khong""");
+        for (Truck truck : truckList) {
+            if (truck.getSeaOfControl().equals(seaOfControlRemove)) {
+                System.out.println("ban co muon xoa khong\n" +
+                        "1. co\n" +
+                        "2. khong");
 
                 int chooseYesNo = Integer.parseInt(scanner.nextLine());
-                if (chooseYesNo==1){
+                if (chooseYesNo == 1) {
                     truckList.remove(truck);
                     System.out.println("xoa thanh cong");
                 }
@@ -45,7 +45,7 @@ private static final Scanner scanner = new Scanner(System.in);
                 break;
             }
         }
-        if (!isFlag){
+        if (!isFlag) {
             System.out.println("khong tim thay!");
         }
     }
@@ -67,7 +67,7 @@ private static final Scanner scanner = new Scanner(System.in);
         }
     }
 
-    public static Truck infoTruck(){
+    public static Truck infoTruck() {
         System.out.print(" Nhap bien kiem soat:");
         String seaOfControl = scanner.nextLine();
 
@@ -83,6 +83,6 @@ private static final Scanner scanner = new Scanner(System.in);
         System.out.print(" nhap trong tai:");
         int tonnage = Integer.parseInt(scanner.nextLine());
 
-        return new Truck(seaOfControl,manufacturer,yearOfManufacture,owner,tonnage);
+        return new Truck(seaOfControl, manufacturer, yearOfManufacture, owner, tonnage);
     }
 }

@@ -11,14 +11,13 @@ public class StudentController {
 
     public void menuStudent() {
         do {
-            System.out.println("""
-                    1. Them moi hoc sinh
-                    2. Xoa hoc sinh
-                    3. Hien thi hoc sinh
-                    4. Tim hoc sinh theo id
-                    5. Tim hoc sinh theo ten
-                    6. Sap xep hoc sinh theo ten
-                    7. Quay ve menu chinh""");
+            System.out.println("1. Them moi hoc sinh\n" +
+                    "2. Xoa hoc sinh\n" +
+                    "3. Hien thi hoc sinh\n" +
+                    "4. Tim hoc sinh theo id\n" +
+                    "5. Tim hoc sinh theo ten\n" +
+                    "6. Sap xep hoc sinh theo ten\n" +
+                    "7. Quay ve menu chinh");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:

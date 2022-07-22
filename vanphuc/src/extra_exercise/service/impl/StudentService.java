@@ -50,10 +50,9 @@ public class StudentService implements IStudentService {
         boolean isFlag = false;
         for (Student student : studentList) {
             if (student.getId() == idRemove) {
-                System.out.println("""
-                        Ban muon xoa hay khong?
-                        1. co
-                        2. khong""");
+                System.out.println(" Ban muon xoa hay khong?\n" +
+                        "1. co\n" +
+                        "2. khong");
                 int chooseYesNo = Integer.parseInt(scanner.nextLine());
                 if (chooseYesNo == 1) {
                     studentList.remove(student);
@@ -144,19 +143,19 @@ public class StudentService implements IStudentService {
 
     public static Student infoStudent() {
         System.out.print("nhap id moi:");
-        int newId ;
+        int newId;
         while (true) {
             try {
                 newId = Integer.parseInt(scanner.nextLine());
-                for (Student student: studentList){
-                    if (student.getId() == newId){
+                for (Student student : studentList) {
+                    if (student.getId() == newId) {
                         throw new DuplicateIDException("id da co, vui long nhap lai!!");
                     }
                 }
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Phai nhap so");
-            }catch (DuplicateIDException e){
+            } catch (DuplicateIDException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -169,7 +168,7 @@ public class StudentService implements IStudentService {
         System.out.print("nhap lop:");
         String classes = scanner.nextLine();
         System.out.print("nhap diem:");
-        double point ;
+        double point;
         while (true) {
 
             try {

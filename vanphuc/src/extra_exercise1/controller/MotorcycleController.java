@@ -11,12 +11,11 @@ public class MotorcycleController {
 
     public void menuMotorcycle(){
         do {
-            System.out.println("""
-                    1. Them xe may
-                    2. Hien thi xe may
-                    3. Xoa xe may
-                    4. Tim kiem xe may
-                    5. Quay ve menu chinh""");
+            System.out.println(" 1. Them xe may\n" +
+                    "2. Hien thi xe may\n" +
+                    "3. Xoa xe may\n" +
+                    "4. Tim kiem xe may\n" +
+                    "5. Quay ve menu chinh");
 
             int choose = Integer.parseInt(scanner.nextLine());
 
