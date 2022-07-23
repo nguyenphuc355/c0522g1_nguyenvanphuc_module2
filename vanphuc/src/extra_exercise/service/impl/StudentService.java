@@ -3,6 +3,8 @@ package extra_exercise.service.impl;
 import extra_exercise.exception.DuplicateIDException;
 import extra_exercise.model.Student;
 import extra_exercise.service.IStudentService;
+import extra_exercise.ultils.ReadStudent;
+import extra_exercise.ultils.WriteStudent;
 
 
 import java.util.ArrayList;
@@ -11,25 +13,29 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StudentService implements IStudentService {
+    public static final String PATH = "vanphuc/src/extra_exercise/data/Student.csv";
     private static List<Student> studentList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
-    static {
-        studentList.add(new Student(1, "Thanh", "1993", "man", "c05", 5));
-        studentList.add(new Student(2, "Huan", "1995", "man", "c05", 6));
-        studentList.add(new Student(3, "Ty", "2000", "man", "c05", 7));
-        studentList.add(new Student(4, "Nam", "2001", "man", "c05", 8));
+    public void writeStudent(){
+        WriteStudent.writeStudentFile(PATH,studentList);
     }
-
+    public void readStudent(){
+        List<Student> list = ReadStudent.readStudentFile(PATH);
+        studentList.clear();
+        studentList.addAll(list);
+    }
     /**
      * creater :Nguyễn Văn phúc
      * thêm học sinh mới vào danh sách
      */
     @Override
     public void addStudent() {
+        readStudent();
         Student student = infoStudent();
         studentList.add(student);
         System.out.println("them moi thanh cong! ");
+        writeStudent();
     }
 
     /**
@@ -37,6 +43,7 @@ public class StudentService implements IStudentService {
      */
     @Override
     public void removeStudent() {
+        readStudent();
         System.out.print("moi ban nhap id can xoa: ");
         int idRemove = 0;
         while (true) {
@@ -57,11 +64,13 @@ public class StudentService implements IStudentService {
                 if (chooseYesNo == 1) {
                     studentList.remove(student);
                     System.out.println("da xoa thanh cong!");
+
                 }
                 isFlag = true;
                 break;
             }
         }
+        writeStudent();
         if (!isFlag) {
             System.out.println("khong tim thay!");
         }
@@ -72,6 +81,7 @@ public class StudentService implements IStudentService {
      */
     @Override
     public void disPlayAllStudent() {
+        readStudent();
         for (Student student : studentList) {
             System.out.println(student);
         }
@@ -83,6 +93,7 @@ public class StudentService implements IStudentService {
 
     @Override
     public void findStudentById() {
+        readStudent();
         System.out.print("nhap id muon tim: ");
         int idFind = 0;
         while (true) {
@@ -111,6 +122,7 @@ public class StudentService implements IStudentService {
      */
     @Override
     public void findStudentByName() {
+        readStudent();
         boolean isExist = false;
         System.out.print("Moi nhap ten can tim: : ");
         String nameFind = scanner.nextLine();
@@ -128,6 +140,7 @@ public class StudentService implements IStudentService {
 
     @Override
     public void bubbleSortName() {
+        readStudent();
         boolean isSwap = true;
         for (int i = 0; i < studentList.size() - 1 && isSwap; i++) {
             isSwap = false;
@@ -138,7 +151,8 @@ public class StudentService implements IStudentService {
                 }
             }
         }
-        // System.out.println(studentList);
+        writeStudent();
+        disPlayAllStudent();
     }
 
     public static Student infoStudent() {

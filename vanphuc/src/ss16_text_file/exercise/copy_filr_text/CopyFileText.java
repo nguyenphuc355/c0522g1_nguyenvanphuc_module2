@@ -17,13 +17,13 @@ public class CopyFileText {
                 temp.append(line);
                 temp.append("\n");
             }
-            temp.delete(temp.length() - 2, temp.length());
+            temp.delete(temp.length() - 1, temp.length());
             bufferedReader.close();
 
             File file2 = new File("vanphuc/src/ss16_text_file/target file.txt");
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file2));
             bufferedWriter.write(temp.toString());
-
+            System.out.println("so ky tu: "+temp.length());
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();

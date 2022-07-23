@@ -4,6 +4,8 @@ package extra_exercise.service.impl;
 import extra_exercise.exception.DuplicateIDException;
 import extra_exercise.model.Lecturer;
 import extra_exercise.service.ILecturerService;
+import extra_exercise.ultils.ReadLecturer;
+import extra_exercise.ultils.WriteLecturer;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,14 +13,18 @@ import java.util.List;
 import java.util.Scanner;
 
 public class LecturerService implements ILecturerService {
+    public static final String PATH = "vanphuc/src/extra_exercise/data/teacher.csv";
     private static List<Lecturer> lecturerList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
-    static {
-        lecturerList.add(new Lecturer(1, "Oanh", "1990", "nu", "Toan"));
-        lecturerList.add(new Lecturer(2, "Hau", "1989", "nam", "Van"));
-        lecturerList.add(new Lecturer(3, "Tra", "1987", "nu", "Anh"));
-        lecturerList.add(new Lecturer(4, "Yen", "1992", "nam", "Ly"));
+    public void writeFile(){
+        WriteLecturer.writeLecturerFile(PATH,lecturerList);
+    }
+    public void readFile(){
+        List<Lecturer>list = ReadLecturer.readLecturerFile(PATH);
+
+        lecturerList.clear();
+        lecturerList.addAll(list);
     }
 
     /**
@@ -26,9 +32,11 @@ public class LecturerService implements ILecturerService {
      */
     @Override
     public void addLecturer() {
+        readFile();
         Lecturer lecturer = infoLecturer();
         lecturerList.add(lecturer);
         System.out.println("them thanh cong!");
+        writeFile();
     }
 
     /**
@@ -36,6 +44,7 @@ public class LecturerService implements ILecturerService {
      */
     @Override
     public void removeLecturer() {
+        readFile();
         System.out.print("nhap id can xoa: ");
         int idRemove;
         while (true) {
@@ -62,6 +71,8 @@ public class LecturerService implements ILecturerService {
                 break;
             }
         }
+        writeFile();
+
         if (!isFlag) {
             System.out.println("khong tim thay id");
         }
@@ -72,6 +83,7 @@ public class LecturerService implements ILecturerService {
      */
     @Override
     public void displayAllLecturer() {
+        readFile();
         for (Lecturer lecturer : lecturerList) {
             System.out.println(lecturer);
         }
@@ -82,6 +94,7 @@ public class LecturerService implements ILecturerService {
      */
     @Override
     public void findLecturerById() {
+        readFile();
         System.out.print("nhap id muon tim: ");
         int idFind;
         while (true) {
@@ -110,6 +123,7 @@ public class LecturerService implements ILecturerService {
      */
     @Override
     public void findLecturerByName() {
+        readFile();
         boolean isExist = false;
         System.out.print("Moi nhap ten can tim: : ");
         String nameFind = scanner.nextLine();
@@ -127,6 +141,7 @@ public class LecturerService implements ILecturerService {
 
     @Override
     public void bubbleSortLecturer() {
+        readFile();
         boolean isSwap = true;
         for (int i = 0; i < lecturerList.size() - 1 && isSwap; i++) {
             isSwap = false;
@@ -137,6 +152,8 @@ public class LecturerService implements ILecturerService {
                 }
             }
         }
+        writeFile();
+        displayAllLecturer();
     }
 
 

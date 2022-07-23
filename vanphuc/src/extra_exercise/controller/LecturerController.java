@@ -17,7 +17,7 @@ public class LecturerController {
                     "4. Tim giang vien theo id\n" +
                     "5. Tim giang vien theo ten\n" +
                     "6. Sap xep theo ten\n" +
-                    "6. quay ve menu chinh");
+                    "7. quay ve menu chinh");
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
