@@ -18,7 +18,13 @@ public class StudentController {
                     "5. Tim hoc sinh theo ten\n" +
                     "6. Sap xep hoc sinh theo ten\n" +
                     "7. Quay ve menu chinh");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose =0;
+            try {
+                choose = Integer.parseInt(scanner.nextLine());
+            }catch (NumberFormatException e){
+                System.out.println("---nhap lai so---");;
+            }
+
             switch (choose) {
                 case 1:
                     iStudentService.addStudent();
@@ -40,6 +46,8 @@ public class StudentController {
                     break;
                 case 7:
                     return;
+                default:
+                    System.out.println("yeu cau nhap lai!!!");
             }
         } while (true);
     }

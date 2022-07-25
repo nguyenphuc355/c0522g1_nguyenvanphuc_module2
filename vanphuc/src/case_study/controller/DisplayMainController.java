@@ -1,5 +1,6 @@
 package case_study.controller;
 
+
 import java.util.Scanner;
 
 public class DisplayMainController {
@@ -19,6 +20,8 @@ public class DisplayMainController {
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose){
                 case 1:
+                    EmployeeController.menuEmployee();
+                    break;
                 case 2:
                 case 3:
                 case 4:

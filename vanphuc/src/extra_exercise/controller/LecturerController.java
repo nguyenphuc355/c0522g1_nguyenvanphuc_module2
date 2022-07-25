@@ -18,7 +18,12 @@ public class LecturerController {
                     "5. Tim giang vien theo ten\n" +
                     "6. Sap xep theo ten\n" +
                     "7. quay ve menu chinh");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose =0;
+            try {
+                choose = Integer.parseInt(scanner.nextLine());
+            }catch (NumberFormatException e){
+                System.out.println("---nhap lai so---");;
+            }
             switch (choose) {
                 case 1:
                     iLecturerService.addLecturer();
@@ -40,6 +45,8 @@ public class LecturerController {
                     break;
                 case 7:
                     return;
+                default:
+                    System.out.println("yeu cau nhap lai!!!");
 
             }
         } while (true);

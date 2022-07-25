@@ -177,12 +177,16 @@ public class LecturerService implements ILecturerService {
         }
         System.out.print("nhap name: ");
         String name = scanner.nextLine();
+
         System.out.print("nhap ngay sinh: ");
         String dateOfBirth = scanner.nextLine();
+
         System.out.print("nhap gioi tinh: ");
         String gender = scanner.nextLine();
+
         System.out.print("nhap chuyen mon : ");
         String specialize = scanner.nextLine();
+
         return new Lecturer(id, name, gender, dateOfBirth, specialize);
     }
 }

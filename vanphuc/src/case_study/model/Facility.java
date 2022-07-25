@@ -3,14 +3,14 @@ package case_study.model;
 public abstract class Facility {
     private String serviceName;
     private String usableArea;
-    private String rentalCosts;
+    private int rentalCosts;
     private String maxPeople;
     private String rentalType;
 
     public Facility() {
     }
 
-    public Facility(String serviceName, String usableArea, String rentalCosts, String maxPeople, String rentalType) {
+    public Facility(String serviceName, String usableArea, int rentalCosts, String maxPeople, String rentalType) {
         this.serviceName = serviceName;
         this.usableArea = usableArea;
         this.rentalCosts = rentalCosts;
@@ -34,11 +34,11 @@ public abstract class Facility {
         this.usableArea = usableArea;
     }
 
-    public String getRentalCosts() {
+    public int getRentalCosts() {
         return rentalCosts;
     }
 
-    public void setRentalCosts(String rentalCosts) {
+    public void setRentalCosts(int rentalCosts) {
         this.rentalCosts = rentalCosts;
     }
 
@@ -57,6 +57,8 @@ public abstract class Facility {
     public void setRentalType(String rentalType) {
         this.rentalType = rentalType;
     }
+
+    public abstract String getInfo();
 
     @Override
     public String toString() {

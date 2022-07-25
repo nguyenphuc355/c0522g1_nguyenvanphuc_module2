@@ -1,12 +1,17 @@
 package case_study.controller;
 
+import case_study.service.IEmployeeService;
+import case_study.service.impl.EmployeeService;
+
 import java.util.Scanner;
 
 public class EmployeeController {
-    private Scanner scanner = new Scanner(System.in);
-    public  void menuEmployee(){
+
+    public static   void menuEmployee(){
+        Scanner scanner = new Scanner(System.in);
+        IEmployeeService iEmployeeService = new EmployeeService();
         do {
-            System.out.println("1. Display lít employees\n" +
+            System.out.println("1. Display list employees\n" +
                     "2. Add new employee\n" +
                     "3. Edit employee\n" +
                     "4. Return main menu");
@@ -15,6 +20,8 @@ public class EmployeeController {
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose){
                 case 1:
+                    iEmployeeService.display();
+                    break;
                 case 2:
                 case 3:
                 case 4:

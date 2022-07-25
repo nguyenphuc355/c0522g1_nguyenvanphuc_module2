@@ -15,7 +15,12 @@ public class StudyController {
                     "3. Thoat chuong trinh");
 
             System.out.println("moi ban nhap lua chon: ");
-            int choose = Integer.parseInt(scanner.nextLine());
+            int choose =0;
+            try {
+                choose = Integer.parseInt(scanner.nextLine());
+            }catch (NumberFormatException e){
+                System.out.println("---nhap lai so---");
+            }
             switch (choose) {
                 case 1:
                     studentController.menuStudent();

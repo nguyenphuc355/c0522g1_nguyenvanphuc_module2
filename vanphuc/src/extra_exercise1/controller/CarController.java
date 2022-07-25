@@ -6,8 +6,8 @@ import extra_exercise1.service.impl.CarService;
 import java.util.Scanner;
 
 public class CarController {
-    private final Scanner scanner = new Scanner(System.in);
-    private final ICarrService iCarrService = new CarService();
+    private  Scanner scanner = new Scanner(System.in);
+    private  ICarrService iCarrService = new CarService();
 
     public void menuCar() {
         do {
