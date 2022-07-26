@@ -17,11 +17,12 @@ public class LecturerService implements ILecturerService {
     private static List<Lecturer> lecturerList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
-    public void writeFile(){
-        WriteLecturer.writeLecturerFile(PATH,lecturerList);
+    public void writeFile() {
+        WriteLecturer.writeLecturerFile(PATH, lecturerList);
     }
-    public void readFile(){
-        List<Lecturer>list = ReadLecturer.readLecturerFile(PATH);
+
+    public void readFile() {
+        List<Lecturer> list = ReadLecturer.readLecturerFile(PATH);
 
         lecturerList.clear();
         lecturerList.addAll(list);
@@ -156,6 +157,24 @@ public class LecturerService implements ILecturerService {
         displayAllLecturer();
     }
 
+    public static String getName() {
+        System.out.print("Nhap name: ");
+        String name = scanner.nextLine();
+        String[] arr = name.toLowerCase().trim().split("");
+        StringBuilder str = new StringBuilder().append(arr[0].toUpperCase());
+        for (int i = 1; i < arr.length; i++) {
+            if (!arr[i].equals(" ")) {
+                if (arr[i - 1].equals(" ")) {
+                    str.append(arr[i].toUpperCase());
+                } else {
+                    str.append(arr[i]);
+                }
+            } else if (!arr[i + 1].equals(" ")) {
+                str.append(arr[i]);
+            }
+        }
+        return str.toString();
+    }
 
     public static Lecturer infoLecturer() {
         System.out.print("nhap id: ");
@@ -175,8 +194,7 @@ public class LecturerService implements ILecturerService {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.print("nhap name: ");
-        String name = scanner.nextLine();
+        String name = getName();
 
         System.out.print("nhap ngay sinh: ");
         String dateOfBirth = scanner.nextLine();

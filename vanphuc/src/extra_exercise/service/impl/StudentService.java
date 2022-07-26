@@ -2,6 +2,7 @@ package extra_exercise.service.impl;
 
 import extra_exercise.exception.DuplicateIDException;
 import extra_exercise.model.Student;
+import extra_exercise.regex_file.Regex;
 import extra_exercise.service.IStudentService;
 import extra_exercise.ultils.ReadStudent;
 import extra_exercise.ultils.WriteStudent;
@@ -155,7 +156,26 @@ public class StudentService implements IStudentService {
         disPlayAllStudent();
     }
 
-    public static Student infoStudent() {
+    public static String getName() {
+        System.out.print("Nhap name: ");
+        String name = scanner.nextLine();
+        String[] arr = name.toLowerCase().trim().split("");
+        StringBuilder str = new StringBuilder().append(arr[0].toUpperCase());
+        for (int i = 1; i < arr.length; i++) {
+            if (!arr[i].equals(" ")) {
+                if (arr[i - 1].equals(" ")) {
+                    str.append(arr[i].toUpperCase());
+                } else {
+                    str.append(arr[i]);
+                }
+            } else if (!arr[i + 1].equals(" ")) {
+                str.append(arr[i]);
+            }
+        }
+        return str.toString();
+    }
+
+        public static Student infoStudent() {
         System.out.print("nhap id moi:");
         int newId;
         while (true) {
@@ -173,14 +193,26 @@ public class StudentService implements IStudentService {
                 System.out.println(e.getMessage());
             }
         }
-        System.out.print("nhap name:");
-        String name = scanner.nextLine();
-        System.out.print("nhap ngay sinh:");
-        String dateOfBirth = scanner.nextLine();
+        String name = getName();
+        String dateOfBirth;
+        while (true){
+            System.out.print("nhap ngay sinh:");
+            dateOfBirth = scanner.nextLine();
+            if (dateOfBirth.matches(Regex.REGEX)){
+                break;
+            }else {
+                System.out.println("Nhap sai, yeu cau nhap lai");
+            }
+        }
+
+
+
         System.out.print("nhap gioi tinh:");
         String gender = scanner.nextLine();
+
         System.out.print("nhap lop:");
         String classes = scanner.nextLine();
+
         System.out.print("nhap diem:");
         double point;
         while (true) {

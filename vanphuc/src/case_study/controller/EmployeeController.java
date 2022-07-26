@@ -23,7 +23,11 @@ public class EmployeeController {
                     iEmployeeService.display();
                     break;
                 case 2:
+                    iEmployeeService.add();
+                    break;
                 case 3:
+                    iEmployeeService.edit();
+                    break;
                 case 4:
                     return;
             }

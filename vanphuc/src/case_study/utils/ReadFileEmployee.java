@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadFileEmployee {
-    private static List<String> readFiles(String path){
+    private static List<String> readFiles(String path) {
         List<String> strings = new ArrayList<>();
         String line;
         try {
@@ -20,24 +20,27 @@ public class ReadFileEmployee {
 
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            while ((line = bufferedReader.readLine())!= null){
+            bufferedReader.readLine();
+
+            while ((line = bufferedReader.readLine()) != null) {
+
                 strings.add(line);
             }
             bufferedReader.close();
-        }catch (IOException e){
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return strings;
     }
 
-    public static List<Employee> readEmployees(String path){
+    public static List<Employee> readEmployees(String path) {
         List<String> strings = readFiles(path);
         List<Employee> employeeList = new ArrayList<>();
-        String [] info;
-
-        for (String line : strings){
+        String[] info;
+        for (String line : strings) {
             info = line.split(",");
-            employeeList.add((new Employee(info[0],info[1],info[2],info[3],Integer.parseInt(info[4]),info[5],Integer.parseInt(info[6]),info[7],info[8],Double.parseDouble(info[9]))));
+            employeeList.add((new Employee(info[0], info[1], info[2], info[3], Integer.parseInt(info[4]), info[5], Integer.parseInt(info[6]), info[7], info[8], Integer.parseInt(info[9]))));
         }
         return employeeList;
     }

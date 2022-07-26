@@ -1,31 +1,31 @@
 package case_study.model;
 
 public class Customer extends Person {
-    private String id;
+    private int id;
     private String typeOfGuest;
     private String address;
 
     public Customer() {
     }
 
-    public Customer(String id, String typeOfGuest, String address) {
+    public Customer(int id, String typeOfGuest, String address) {
         this.id = id;
         this.typeOfGuest = typeOfGuest;
         this.address = address;
     }
 
-    public Customer(String code, String dateOfBirth, String gender, String name, int phoneNumber, String email, String id, String typeOfGuest, String address) {
+    public Customer(String code, String dateOfBirth, String gender, String name, int phoneNumber, String email, int id, String typeOfGuest, String address) {
         super(code, dateOfBirth, gender, name, phoneNumber, email);
         this.id = id;
         this.typeOfGuest = typeOfGuest;
         this.address = address;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

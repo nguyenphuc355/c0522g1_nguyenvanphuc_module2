@@ -23,6 +23,8 @@ public class DisplayMainController {
                     EmployeeController.menuEmployee();
                     break;
                 case 2:
+                    CustomerController.menuCustomer();
+                    break;
                 case 3:
                 case 4:
                 case 5:

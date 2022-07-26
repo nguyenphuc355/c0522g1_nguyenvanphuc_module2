@@ -4,13 +4,13 @@ public class Employee extends Person {
     private int id;
     private String level;
     private String location;
-    private double wage;
+    private int wage;
 
     public Employee() {
     }
 
 
-    public Employee( String code, String name, String dateOfBirth, String gender, int phoneNumber, String email, int id, String level, String location, double wage) {
+    public Employee(String code, String dateOfBirth, String gender, String name, int phoneNumber, String email, int id, String level, String location, int wage) {
         super(code, dateOfBirth, gender, name, phoneNumber, email);
         this.id = id;
         this.level = level;
@@ -42,26 +42,25 @@ public class Employee extends Person {
         this.location = location;
     }
 
-    public double getWage() {
+    public int getWage() {
         return wage;
     }
 
-    public void setWage(double wage) {
+    public void setWage(int wage) {
         this.wage = wage;
     }
 
     @Override
     public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%1.2f", getName(), getDateOfBirth(), getGender(), getCode(), getPhoneNumber(), getEmail(), getId(), getLevel(), getLocation(), getWage());
+        return String.format("\n%s,%s,%s,%s,%d,%s,%d,%s,%s,%d", getCode(), getDateOfBirth(), getGender(), getName(), getPhoneNumber(), getEmail(), getId(), getLevel(), getLocation(), getWage());
     }
 
     @Override
     public String toString() {
-        return super.toString() + " Employee{" +
-                "id= " + id +
-                ", level = '" + level + '\'' +
-                ", location = '" + location + '\'' +
-                ", wage=" + wage +
-                '}';
+        return super.toString() +
+                " - Id = " + id +
+                " - Trinh do = '" + level +
+                " - Chuc vu = " + location +
+                " - Tien luong = " + wage;
     }
 }
