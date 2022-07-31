@@ -1,16 +1,16 @@
 package case_study.model;
 
-public class Contact {
+public class Contract {
     private String contractNumber;
-    private double codeBooking;
+    private String codeBooking;
     private double advanceDepositAmount;
     private double payments;
     private String customerCode;
 
-    public Contact() {
+    public Contract() {
     }
 
-    public Contact(String contractNumber, double codeBooking, double advanceDepositAmount, double payments, String customerCode) {
+    public Contract(String contractNumber, String codeBooking, double advanceDepositAmount, double payments, String customerCode) {
         this.contractNumber = contractNumber;
         this.codeBooking = codeBooking;
         this.advanceDepositAmount = advanceDepositAmount;
@@ -26,11 +26,11 @@ public class Contact {
         this.contractNumber = contractNumber;
     }
 
-    public double getCodeBooking() {
+    public String getCodeBooking() {
         return codeBooking;
     }
 
-    public void setCodeBooking(double codeBooking) {
+    public void setCodeBooking(String codeBooking) {
         this.codeBooking = codeBooking;
     }
 
@@ -58,14 +58,17 @@ public class Contact {
         this.customerCode = customerCode;
     }
 
+    public String getInfo(){
+        return String.format("%s,%s,%f,%f,%s",getContractNumber(),getCodeBooking(),getAdvanceDepositAmount(),getPayments(),getCustomerCode());
+    }
+
     @Override
     public String toString() {
-        return "Contract{ " +
-                "contractNumber ='" + contractNumber + '\'' +
-                ", codeBooking = " + codeBooking +
-                ", advanceDepositAmount = " + advanceDepositAmount +
-                ", payments = " + payments +
-                ", customerCode=' " + customerCode + '\'' +
-                '}';
+        return
+                "So hop dong:[" + contractNumber +"]"+
+                "  Ma booking:[" + codeBooking +"]"+
+                "  So tien coc truoc:[" + advanceDepositAmount +"]"+
+                "  Tong tien thanh toan:[" + payments +"]"+
+                "  Ma khach hang:[" + customerCode+"]";
     }
 }

@@ -1,6 +1,7 @@
 package case_study.model;
 
 public class Villa extends Facility {
+
     private String roomStandard;
     private int swimmingPoolArea;
     private int numberOfFloors;
@@ -10,7 +11,7 @@ public class Villa extends Facility {
 
     @Override
     public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s,%s,%s,%s",getServiceName(),getUsableArea(),getRentalCosts(),getMaxPeople(),getRentalType() ,getRoomStandard(), getSwimmingPoolArea(), getNumberOfFloors());
+        return  String.format("%s,%s,%f,%d,%d,%s,%s,%d,%d",getServiceId(),getServiceName(),getUsableArea(),getRentalCosts(),getMaxPeople(),getRentalType(),getRoomStandard(),getSwimmingPoolArea(),getNumberOfFloors());
     }
 
     public Villa(String roomStandard, int swimmingPoolArea, int numberOfFloors) {
@@ -19,8 +20,8 @@ public class Villa extends Facility {
         this.numberOfFloors = numberOfFloors;
     }
 
-    public Villa(String serviceName, String usableArea, int rentalCosts, String maxPeople, String rentalType, String roomStandard, int swimmingPoolArea, int numberOfFloors) {
-        super(serviceName, usableArea, rentalCosts, maxPeople, rentalType);
+    public Villa(String serviceId, String serviceName, double usableArea, int rentalCosts, int maxPeople, String rentalType, String roomStandard, int swimmingPoolArea, int numberOfFloors) {
+        super(serviceId, serviceName, usableArea, rentalCosts, maxPeople, rentalType);
         this.roomStandard = roomStandard;
         this.swimmingPoolArea = swimmingPoolArea;
         this.numberOfFloors = numberOfFloors;
@@ -52,10 +53,9 @@ public class Villa extends Facility {
 
     @Override
     public String toString() {
-        return super.toString() + " Villa{ " +
-                " roomStandard=' " + roomStandard + '\'' +
-                ", swimmingPoolArea = " + swimmingPoolArea +
-                ", numberOfFloors = " + numberOfFloors +
-                '}';
+        return super.toString()+
+                " roomStandard:[" +roomStandard +"]"+
+                " swimmingPoolArea:[" +swimmingPoolArea +"]"+
+                " numberOfFloors:[" + numberOfFloors+"]";
     }
 }

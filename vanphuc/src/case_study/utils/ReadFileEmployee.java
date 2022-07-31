@@ -20,7 +20,7 @@ public class ReadFileEmployee {
 
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            bufferedReader.readLine();
+//            bufferedReader.readLine();
 
             while ((line = bufferedReader.readLine()) != null) {
 
@@ -40,7 +40,7 @@ public class ReadFileEmployee {
         String[] info;
         for (String line : strings) {
             info = line.split(",");
-            employeeList.add((new Employee(info[0], info[1], info[2], info[3], Integer.parseInt(info[4]), info[5], Integer.parseInt(info[6]), info[7], info[8], Integer.parseInt(info[9]))));
+            employeeList.add((new Employee(info[0], info[1], info[2], info[3],info[4], info[5], Integer.parseInt(info[6]), info[7], info[8], Integer.parseInt(info[9]))));
         }
         return employeeList;
     }

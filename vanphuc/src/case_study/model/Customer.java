@@ -8,13 +8,8 @@ public class Customer extends Person {
     public Customer() {
     }
 
-    public Customer(int id, String typeOfGuest, String address) {
-        this.id = id;
-        this.typeOfGuest = typeOfGuest;
-        this.address = address;
-    }
 
-    public Customer(String code, String dateOfBirth, String gender, String name, int phoneNumber, String email, int id, String typeOfGuest, String address) {
+    public Customer(String code, String dateOfBirth, String gender, String name, String phoneNumber, String email, int id, String typeOfGuest, String address) {
         super(code, dateOfBirth, gender, name, phoneNumber, email);
         this.id = id;
         this.typeOfGuest = typeOfGuest;
@@ -52,10 +47,9 @@ public class Customer extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + " Customer{ " +
-                " id =' " + id + '\'' +
-                ", typeOfGuest =' " + typeOfGuest + '\'' +
-                ", address ='" + address + '\'' +
-                '}';
+        return super.toString() +
+                " id:[" + id +"]"+
+                " Kieu khach:[" + typeOfGuest +"]"+
+                " Dia chi khach hang:[" + address+"]";
     }
 }

@@ -5,13 +5,13 @@ public abstract class Person {
     private String name;
     private String dateOfBirth;
     private String gender;
-    private int phoneNumber;
+    private String phoneNumber;
     private String email;
 
     public Person() {
     }
 
-    public Person(String code, String dateOfBirth, String gender, String name, int phoneNumber, String email) {
+    public Person(String code, String dateOfBirth, String gender, String name, String phoneNumber, String email) {
         this.code = code;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -52,11 +52,11 @@ public abstract class Person {
         this.code = code;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -73,11 +73,11 @@ public abstract class Person {
     @Override
     public String toString() {
         return "THONG TIN: "+
-                " Ma nhan vien = " + code +
-                " - Ngay sinh = " + dateOfBirth +
-                " - Gioi tinh = " + gender +
-                " - Ho ten = " + name +
-                " - So dien thoai = " + phoneNumber +
-                " - Email = " + email  ;
+                " Ma khach hang:[" + code +"]"+
+                " Ngay sinh:[" + dateOfBirth +"]"+
+                " Gioi tinh:[" + gender +"]"+
+                " Ho ten:[" + name +"]"+
+                " So dien thoai:[" + phoneNumber +"]"+
+                " Email:[" + email +"]" ;
     }
 }

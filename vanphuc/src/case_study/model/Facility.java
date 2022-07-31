@@ -1,21 +1,31 @@
 package case_study.model;
 
 public abstract class Facility {
+    private String serviceId;
     private String serviceName;
-    private String usableArea;
+    private double usableArea;
     private int rentalCosts;
-    private String maxPeople;
+    private int maxPeople;
     private String rentalType;
 
     public Facility() {
     }
 
-    public Facility(String serviceName, String usableArea, int rentalCosts, String maxPeople, String rentalType) {
+    public Facility(String serviceId, String serviceName, double usableArea, int rentalCosts, int maxPeople, String rentalType) {
+        this.serviceId = serviceId;
         this.serviceName = serviceName;
         this.usableArea = usableArea;
         this.rentalCosts = rentalCosts;
         this.maxPeople = maxPeople;
         this.rentalType = rentalType;
+    }
+
+    public String getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(String serviceId) {
+        this.serviceId = serviceId;
     }
 
     public String getServiceName() {
@@ -26,11 +36,11 @@ public abstract class Facility {
         this.serviceName = serviceName;
     }
 
-    public String getUsableArea() {
+    public double getUsableArea() {
         return usableArea;
     }
 
-    public void setUsableArea(String usableArea) {
+    public void setUsableArea(double usableArea) {
         this.usableArea = usableArea;
     }
 
@@ -42,11 +52,11 @@ public abstract class Facility {
         this.rentalCosts = rentalCosts;
     }
 
-    public String getMaxPeople() {
+    public int getMaxPeople() {
         return maxPeople;
     }
 
-    public void setMaxPeople(String maxPeople) {
+    public void setMaxPeople(int maxPeople) {
         this.maxPeople = maxPeople;
     }
 
@@ -62,12 +72,13 @@ public abstract class Facility {
 
     @Override
     public String toString() {
-        return "Facility{" +
-                "serviceName='" + serviceName + '\'' +
-                ", usableArea='" + usableArea + '\'' +
-                ", rentalCosts='" + rentalCosts + '\'' +
-                ", maxPeople='" + maxPeople + '\'' +
-                ", rentalType='" + rentalType + '\'' +
-                '}';
+        return
+                "serviceId:[" + serviceId+"]" +
+                " serviceName:[" + serviceName+"]" +
+                " usableArea:[" + usableArea+"]"+
+                " rentalCosts:[" + rentalCosts +"]"+
+                " maxPeople:[" + maxPeople+"]" +
+                " rentalType:[" + rentalType+"]";
     }
 }
+

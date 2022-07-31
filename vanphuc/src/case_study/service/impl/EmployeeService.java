@@ -1,11 +1,14 @@
 package case_study.service.impl;
 
-import case_study.model.Customer;
+
 import case_study.model.Employee;
 import case_study.service.IEmployeeService;
+import case_study.utils.FormatName;
+import case_study.utils.MenuUtil;
 import case_study.utils.ReadFileEmployee;
 import case_study.utils.WriteFileEmployee;
 import ss17_binary_file.exercise.product.exception.DuplicateIDException;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,23 +16,26 @@ import java.util.Scanner;
 
 public class EmployeeService implements IEmployeeService {
     public static final String PATH = "vanphuc/src/case_study/employee.csv";
-    private static List<Employee> employeeList = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
+    private static final List<Employee> EMPLOYEE_LIST = new ArrayList<>();
+    private static final Scanner SCANNER = new Scanner(System.in);
 
-    private void writeEmployee() {
-        WriteFileEmployee.writeFile(PATH, employeeList);
-    }
 
     public void readEmployee() {
         List<Employee> list = ReadFileEmployee.readEmployees(PATH);
-        employeeList.clear();
-        employeeList.addAll(list);
+        EMPLOYEE_LIST.clear();
+        EMPLOYEE_LIST.addAll(list);
     }
+
+    private void writeEmployee() {
+        WriteFileEmployee.writeFile(PATH, EMPLOYEE_LIST);
+    }
+
+
 
     @Override
     public void display() {
         readEmployee();
-        for (Employee employee : employeeList) {
+        for (Employee employee : EMPLOYEE_LIST) {
             System.out.println(employee);
         }
     }
@@ -38,7 +44,7 @@ public class EmployeeService implements IEmployeeService {
     public void add() {
         readEmployee();
         Employee employee = infoEmployee();
-        employeeList.add(employee);
+        EMPLOYEE_LIST.add(employee);
         System.out.println("nhap thanh cong");
         writeEmployee();
     }
@@ -47,65 +53,39 @@ public class EmployeeService implements IEmployeeService {
     public void edit() {
         readEmployee();
         System.out.print("nhap ma nhan vien can sua: ");
-        String codeEdit = scanner.nextLine();
+        String codeEdit = SCANNER.nextLine();
 
-        for (Employee employee : employeeList) {
+        for (Employee employee : EMPLOYEE_LIST) {
             if (codeEdit.equals(employee.getCode())) {
-                System.out.print("Nhap ngay sinh: ");
-                employee.setDateOfBirth(scanner.nextLine());
 
-                System.out.print("Nhap gioi tinh: ");
-                employee.setGender(scanner.nextLine());
+                System.out.print("Nhap ngay sinh: ");
+                employee.setDateOfBirth(MenuUtil.getDateOfBirth());
+
+                employee.setGender(MenuUtil.getGender());
 
                 System.out.print("nhap ho va ten:");
-                employee.setName(scanner.nextLine());
+                employee.setName(FormatName.getName());
 
                 System.out.print("Nhap so dien thoai: ");
-                employee.setPhoneNumber(Integer.parseInt(scanner.nextLine()));
+                employee.setPhoneNumber(MenuUtil.getPhone());
 
                 System.out.print("Nhap email: ");
-                employee.setEmail(scanner.nextLine());
+                employee.setEmail(SCANNER.nextLine());
 
                 System.out.print("nhap so CCCD: ");
-                employee.setId(Integer.parseInt(scanner.nextLine()));
+                employee.setId(Integer.parseInt(SCANNER.nextLine()));
 
-//                System.out.print("nhap trinh do: ");
-//                Employee employees = new Employee();
-                int choose;
-                do {
-                    System.out.println("===TRINH DO===\n" +
-                            "1. Trung cap\n" +
-                            "2. Cao dang\n" +
-                            "3. Dai Hoc\n" +
-                            "4.Sau dai hoc");
+                employee.setLevel(MenuUtil.getLevel());
 
-                    choose = Integer.parseInt(scanner.nextLine());
-                    switch (choose) {
-                        case 1:
-                            employee.setLevel("Trung cap");
-                            break;
-                        case 2:
-                            employee.setLevel("Cao dang");
-                            break;
-                        case 3:
-                            employee.setLevel("Dai hoc");
-                            break;
-                        case 4:
-                            employee.setLevel("Sau dai hoc");
-                            break;
-                    }
-                } while (choose != 1 && choose != 2 && choose != 3 && choose != 4);
-
-                System.out.print(" nhap chuc vu: ");
-                employee.setLocation(scanner.nextLine());
+                employee.setLocation(MenuUtil.getLocation());
 
                 System.out.print("nhap luong: ");
-                employee.setWage(Integer.parseInt(scanner.nextLine()));
+                employee.setWage(Integer.parseInt(SCANNER.nextLine()));
 
                 writeEmployee();
             }
         }
-        System.out.println("====EDIT OK====");
+        System.out.println("====CHINH SUA THANH CONG====");
     }
 
 
@@ -114,8 +94,8 @@ public class EmployeeService implements IEmployeeService {
         String code;
         while (true) {
             try {
-                code = scanner.nextLine();
-                for (Employee employee : employeeList) {
+                code = SCANNER.nextLine();
+                for (Employee employee : EMPLOYEE_LIST) {
                     if (employee.getCode().equals(code)) {
                         throw new DuplicateIDException("Ma nhan vien da co, nhap lai!!");
                     }
@@ -127,42 +107,26 @@ public class EmployeeService implements IEmployeeService {
         }
 
         System.out.print("Nhap ngay sinh: ");
-        String dateOfBirth = scanner.nextLine();
+        String dateOfBirth = MenuUtil.getDateOfBirth();
 
         System.out.print("Nhap gioi tinh: ");
-        String gender = scanner.nextLine();
+        String gender = MenuUtil.getGender();
 
         System.out.print("nhap ho va ten:");
-        String name = scanner.nextLine();
+        String name = FormatName.getName();
 
         System.out.print("Nhap so dien thoai: ");
-        int phone;
-        while (true) {
-            try {
+        String phone = MenuUtil.getPhone();
 
-
-                phone = Integer.parseInt(scanner.nextLine());
-                for (Employee employee : employeeList) {
-                    if (employee.getPhoneNumber() == phone) {
-                        throw new DuplicateIDException("So dien thoai da co, vui long nhap lai");
-                    }
-                }
-                break;
-            } catch (NumberFormatException e) {
-                System.out.println("phai nhap so");
-            } catch (DuplicateIDException e) {
-                System.out.println(e.getMessage());
-            }
-        }
         System.out.print("Nhap email: ");
-        String email = scanner.nextLine();
+        String email = SCANNER.nextLine();
 
         System.out.print("nhap so CCCD: ");
         int id;
         while (true) {
             try {
-                id = Integer.parseInt(scanner.nextLine());
-                for (Employee employee : employeeList) {
+                id = Integer.parseInt(SCANNER.nextLine());
+                for (Employee employee : EMPLOYEE_LIST) {
                     if (employee.getId() == id) {
                         throw new DuplicateIDException("id da co, moi nhap lai");
                     }
@@ -175,41 +139,17 @@ public class EmployeeService implements IEmployeeService {
             }
         }
 
-        Employee employees = new Employee();
-        int choose;
-        do {
-            System.out.println("===TRINH DO===\n" +
-                    "1. Trung cap\n" +
-                    "2. Cao dang\n" +
-                    "3. Dai Hoc\n" +
-                    "4.Sau dai hoc");
-
-            choose = Integer.parseInt(scanner.nextLine());
-            switch (choose) {
-                case 1:
-                    employees.setLevel("Trung cap");
-                    break;
-                case 2:
-                    employees.setLevel("Cao dang");
-                    break;
-                case 3:
-                    employees.setLevel("Dai hoc");
-                    break;
-                case 4:
-                    employees.setLevel("Sau dai hoc");
-                    break;
-            }
-        } while (choose != 1 && choose != 2 && choose != 3 && choose != 4);
+        String level = MenuUtil.getLevel();
 
         System.out.print(" nhap chuc vu: ");
-        String location = scanner.nextLine();
+        String location = MenuUtil.getLocation();
 
         System.out.print("nhap luong: ");
         int wage;
         while (true) {
             try {
-                wage = Integer.parseInt(scanner.nextLine());
-                for (Employee employee : employeeList) {
+                wage = Integer.parseInt(SCANNER.nextLine());
+                for (Employee employee : EMPLOYEE_LIST) {
                     if (employee.getWage() == wage) {
                         throw new NumberFormatException("phai nhap so");
                     }
@@ -220,7 +160,7 @@ public class EmployeeService implements IEmployeeService {
             }
         }
 
-        return new Employee(code, dateOfBirth, gender, name, phone, email, id, employees.getLevel(), location, wage);
+        return new Employee(code, dateOfBirth, gender, name, phone, email, id, level, location, wage);
     }
 
 }

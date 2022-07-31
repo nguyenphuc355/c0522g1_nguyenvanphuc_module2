@@ -8,15 +8,15 @@ public class Room extends Facility{
 
     @Override
     public String getInfo() {
-        return String.format("%s,%s,%s,%s,%s,%s",getServiceName(),getUsableArea(),getRentalCosts(),getMaxPeople(),getRentalType(),getFreeService());
+        return String.format("%s,%s,%f,%d,%d,%s,%s",getServiceId(),getServiceName(),getUsableArea(),getRentalCosts(),getMaxPeople(),getRentalType(),getFreeService());
     }
 
     public Room(String freeService) {
         this.freeService = freeService;
     }
 
-    public Room(String serviceName, String usableArea, int rentalCosts, String maxPeople, String rentalType, String freeService) {
-        super(serviceName, usableArea, rentalCosts, maxPeople, rentalType);
+    public Room(String serviceId, String serviceName, double usableArea, int rentalCosts, int maxPeople, String rentalType, String freeService) {
+        super(serviceId, serviceName, usableArea, rentalCosts, maxPeople, rentalType);
         this.freeService = freeService;
     }
 
@@ -30,8 +30,7 @@ public class Room extends Facility{
 
     @Override
     public String toString() {
-        return super.toString()+" Room{ " +
-                " freeService = '" + freeService + '\'' +
-                '}';
+        return super.toString()+
+                " freeService:[" + freeService+"]";
     }
 }

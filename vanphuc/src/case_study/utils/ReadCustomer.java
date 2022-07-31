@@ -41,7 +41,7 @@ public class ReadCustomer {
         for (String line : strings) {
             info = line.split(",");
 
-            customerList.add(new Customer(info[0], info[1], info[2], info[3], Integer.parseInt(info[4]), info[5], Integer.parseInt(info[6]), info[7], info[8]));
+            customerList.add(new Customer(info[0], info[1], info[2], info[3], info[4], info[5], Integer.parseInt(info[6]), info[7], info[8]));
         }
         return customerList;
     }

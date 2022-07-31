@@ -4,21 +4,27 @@ package case_study.controller;
 import java.util.Scanner;
 
 public class DisplayMainController {
-    public static void menuController(){
+    public static void menuController() {
 
         Scanner scanner = new Scanner(System.in);
 
         do {
             System.out.println("========Furama=======\n" +
-                    "1. Employee Management\n" +
-                    "2. Customer Management\n" +
-                    "3. Facility Management\n" +
-                    "4. Booking Management\n" +
-                    "5. Promotion Management\n" +
-                    "6. Exit.");
+                    "1. Quan ly nhan vien\n" +
+                    "2. Quan ly khach hang\n" +
+                    "3. Quan ly co so\n" +
+                    "4. Quan ly dat cho\n" +
+                    "5. Quan ly khuyen mai\n" +
+                    "6. Thoat");
             System.out.print("moi ban nhap lua chon: ");
-            int choose = Integer.parseInt(scanner.nextLine());
-            switch (choose){
+            int choose = 0;
+            try {
+                choose = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Phai nhap so, vui long nhap lai");
+            }
+
+            switch (choose) {
                 case 1:
                     EmployeeController.menuEmployee();
                     break;
@@ -26,12 +32,20 @@ public class DisplayMainController {
                     CustomerController.menuCustomer();
                     break;
                 case 3:
+                    FacilityController.menuFacility();
+                    break;
                 case 4:
+                    BookingController.menuBooking();
+                    break;
                 case 5:
+                    PromotionController.menuPromotion();
+                    break;
                 case 6:
                     System.exit(0);
+                default:
+                    System.out.println("lua chon khong hop le, mơi nhap lai!!");
             }
 
-        }while (true);
+        } while (true);
     }
 }

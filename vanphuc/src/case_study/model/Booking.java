@@ -68,15 +68,18 @@ public class Booking {
         this.typeOfService = typeOfService;
     }
 
+    public  String getInfo(){
+        return String.format("%s,%s,%s,%s,%s,%s\n",getBookingCode(),getStartDay(),getEndDate(),getCustomerCode(),getServiceName(),getTypeOfService());
+    }
+
     @Override
     public String toString() {
-        return " Booking{ " +
-                " bookingCode =' " + bookingCode + '\'' +
-                ", startDay ='" + startDay + '\'' +
-                ", endDate ='" + endDate + '\'' +
-                ", customerCode ='" + customerCode + '\'' +
-                ", serviceName ='" + serviceName + '\'' +
-                ", typeOfService ='" + typeOfService + '\'' +
-                '}';
+        return
+                " Ma booking:[" + bookingCode +"]"+
+                "  Ngay bat dau:[" + startDay +"]"+
+                "  Ngay ket thuc:[" + endDate +"]"+
+                "  Ma khach hang:[" + customerCode +"]"+
+                "  Ten dich vu:[" + serviceName +"]"+
+                "  Loai dich vu:[" + typeOfService+"]";
     }
 }
