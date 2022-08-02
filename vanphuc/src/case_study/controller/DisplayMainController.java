@@ -9,7 +9,7 @@ public class DisplayMainController {
         Scanner scanner = new Scanner(System.in);
 
         do {
-            System.out.println("========Furama=======\n" +
+            System.out.println("========Furama Resort========\n" +
                     "1. Quan ly nhan vien\n" +
                     "2. Quan ly khach hang\n" +
                     "3. Quan ly co so\n" +
@@ -43,7 +43,7 @@ public class DisplayMainController {
                 case 6:
                     System.exit(0);
                 default:
-                    System.out.println("lua chon khong hop le, mơi nhap lai!!");
+                    System.out.println("lua chon khong hop le, moi nhap lai!!");
             }
 
         } while (true);

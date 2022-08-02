@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 
 public class CustomerService implements ICustomerService {
-    public static final String PATH = "vanphuc/src/case_study/customer.csv";
+    public static final String PATH = "vanphuc/src/case_study/data/customer.csv";
     private static final List<Customer> CUSTOMER_LIST = new ArrayList<>();
     private static final Scanner SCANNER = new Scanner(System.in);
 
@@ -78,6 +78,7 @@ public class CustomerService implements ICustomerService {
                 customer.setAddress(FormatName.getName());
 
                 writeCustomer();
+                break;
             }
         }
     }
@@ -90,7 +91,7 @@ public class CustomerService implements ICustomerService {
                 customerCode = SCANNER.nextLine();
                 for (Customer customer : CUSTOMER_LIST) {
                     if (customer.getCode().equals(customerCode)) {
-                        throw new DuplicateIDException("bi trung, moi nhap lai");
+                        throw new DuplicateIDException("Ma khach hang bi trung, moi nhap lai");
                     }
                 }
                 break;

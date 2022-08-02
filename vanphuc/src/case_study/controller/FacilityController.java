@@ -31,6 +31,8 @@ public class FacilityController {
                     MenuAddFacility.menuAdd();
                     break;
                 case 3:
+                    iFacilityService.displayMaintenance();
+                    break;
                 case 4:
                     return;
             }

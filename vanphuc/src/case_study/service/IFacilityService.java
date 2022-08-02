@@ -10,4 +10,6 @@ public interface IFacilityService {
     void addRoom();
 
     void display();
+
+    void displayMaintenance();
 }

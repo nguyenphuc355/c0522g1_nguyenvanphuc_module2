@@ -15,9 +15,9 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class FacilityService implements IFacilityService {
-    private static final String PATH_VILLA = "vanphuc/src/case_study/villa.csv";
-    private static final String PATH_HOUSE = "vanphuc/src/case_study/house.csv";
-    private static final String PATH_ROOM = "vanphuc/src/case_study/room.csv";
+    private static final String PATH_VILLA = "vanphuc/src/case_study/data/villa.csv";
+    private static final String PATH_HOUSE = "vanphuc/src/case_study/data/house.csv";
+    private static final String PATH_ROOM = "vanphuc/src/case_study/data/room.csv";
     private static final Scanner SCANNER = new Scanner(System.in);
 
 
@@ -50,8 +50,9 @@ public class FacilityService implements IFacilityService {
                 name = SCANNER.nextLine();
                 if (!name.matches("[A-z][a-z]+")) {
                     throw new ServiceFormatException("Nhap sai dinh dang 'Aabcd',vui long nhap lai");
-                }break;
-            }catch (ServiceFormatException e){
+                }
+                break;
+            } catch (ServiceFormatException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -67,7 +68,7 @@ public class FacilityService implements IFacilityService {
                 break;
             } catch (AreaInvalidException e) {
                 System.out.println(e.getMessage());
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("vui long nhap so!!");
             }
         }
@@ -88,6 +89,7 @@ public class FacilityService implements IFacilityService {
                 System.out.println(e.getMessage());
             }
         }
+
         int maxPeople;
         while (true) {
             try {
@@ -99,7 +101,7 @@ public class FacilityService implements IFacilityService {
                 break;
             } catch (ServiceException e) {
                 System.out.println(e.getMessage());
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("vui long nhap so!!");
             }
         }
@@ -177,8 +179,9 @@ public class FacilityService implements IFacilityService {
                 name = SCANNER.nextLine();
                 if (!name.matches("[A-z][a-z]+")) {
                     throw new ServiceFormatException("Nhap sai dinh dang 'Aabcd',vui long nhap lai");
-                }break;
-            }catch (ServiceFormatException e){
+                }
+                break;
+            } catch (ServiceFormatException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -194,7 +197,7 @@ public class FacilityService implements IFacilityService {
                 break;
             } catch (AreaInvalidException e) {
                 System.out.println(e.getMessage());
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("vui long nhap so!!");
             }
         }
@@ -226,7 +229,7 @@ public class FacilityService implements IFacilityService {
                 break;
             } catch (ServiceException e) {
                 System.out.println(e.getMessage());
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("vui long nhap so!!");
             }
         }
@@ -291,8 +294,9 @@ public class FacilityService implements IFacilityService {
                 name = SCANNER.nextLine();
                 if (!name.matches("[A-z][a-z]+")) {
                     throw new ServiceFormatException("Nhap sai dinh dang 'Aabcd',vui long nhap lai");
-                }break;
-            }catch (ServiceFormatException e){
+                }
+                break;
+            } catch (ServiceFormatException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -300,18 +304,17 @@ public class FacilityService implements IFacilityService {
         while (true) {
             try {
                 System.out.print("Nhap dien tich su dung: ");
-                 area = Double.parseDouble(SCANNER.nextLine());
+                area = Double.parseDouble(SCANNER.nextLine());
                 if (area < 30) {
                     throw new AreaInvalidException("Dien tich su dung phai > 30m2");
                 }
                 break;
             } catch (AreaInvalidException e) {
                 System.out.println(e.getMessage());
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("vui long nhap so!!");
             }
         }
-
 
 
         System.out.print("Nhap chi phi thue: ");
@@ -340,7 +343,7 @@ public class FacilityService implements IFacilityService {
                 break;
             } catch (ServiceException e) {
                 System.out.println(e.getMessage());
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("vui long nhap so!!");
             }
         }
@@ -377,6 +380,34 @@ public class FacilityService implements IFacilityService {
         Map<Facility, Integer> roomList = ReadWriteFacility.readFacilities(PATH_ROOM);
         for (Facility room : roomList.keySet()) {
             System.out.println(room + "-So lan su dung: " + roomList.get(room));
+        }
+    }
+
+    @Override
+    public void displayMaintenance() {
+        System.out.println("-----------------------------DISPLAY MAINTENANCE VILLA-----------------------------------");
+        Map<Facility, Integer> villaList = ReadWriteFacility.readFacilities(PATH_VILLA);
+        for (Facility villa : villaList.keySet()) {
+            if (villaList.get(villa) >= 5) {
+                System.out.println("%s,%s" + villa + " so lan su dung: " + villaList.get(villa));
+            }
+        }
+
+
+        System.out.println("-----------------------------DISPLAY MAINTENANCE HOUSE-----------------------------------");
+        Map<Facility, Integer> houseList = ReadWriteFacility.readFacilities(PATH_HOUSE);
+        for (Facility house : houseList.keySet()) {
+            if (houseList.get(house) >= 5) {
+                System.out.println("%s,%s" + house + " so lan su dung: " + houseList.get(house));
+            }
+        }
+
+        System.out.println("-----------------------------DISPLAY MAINTENANCE ROOM----------------------------------------");
+        Map<Facility, Integer> roomList = ReadWriteFacility.readFacilities(PATH_ROOM);
+        for (Facility room : roomList.keySet()) {
+            if (roomList.get(room) >= 5) {
+                System.out.println("%s,%s" + room + " so lan su dung: " + roomList.get(room));
+            }
         }
     }
 }
